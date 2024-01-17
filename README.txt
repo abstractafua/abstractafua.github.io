@@ -1,4 +1,4 @@
-A Portfolio of all my work history, project and designs. 
+A Portfolio of all my work history, projects and designs. 
 Implemented jquery and javascript using HTML5 UP template from Dopetrope
 
 
