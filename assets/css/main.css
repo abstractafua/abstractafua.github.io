@@ -152,7 +152,7 @@ input, select, textarea {
 	}
 
 	a {
-		color: #d52349;
+		color: #9f0808;
 		text-decoration: underline;
 	}
 
@@ -1572,6 +1572,7 @@ input, select, textarea {
 		background: #ffffff;
 		border-bottom: solid 1px #ccc;
 		padding: 2.75em 1.75em 2.75em 1.75em;
+		size: 10em 10em
 	}
 
 		.box .image.featured {
@@ -1580,6 +1581,7 @@ input, select, textarea {
 			left: 1.75em;
 			top: 1.75em;
 			margin: -4.5em 0 4.25em -3.5em;
+			
 		}
 
 		.box.post header {
@@ -1614,7 +1616,7 @@ input, select, textarea {
 		cursor: pointer;
 		border: 0;
 		border-radius: 5px;
-		background: #d52349;
+		background: #9f0808;
 		color: #fff !important;
 		font-weight: 700;
 		outline: 0;
@@ -1828,7 +1830,7 @@ input, select, textarea {
 			position: absolute;
 			left: 0;
 			top: 1.3em;
-			background-color: #d52349;
+			background-color: #9f0808;
 			height: 3.5em;
 			text-align: center;
 			color: #fff;
@@ -1843,7 +1845,7 @@ input, select, textarea {
 				position: absolute;
 				bottom: 0;
 				right: -1.2em;
-				border-left: solid 1.25em #d52349;
+				border-left: solid 1.25em #9f0808;
 				border-top: solid 1.8em transparent;
 				border-bottom: solid 1.8em transparent;
 			}
@@ -1928,7 +1930,7 @@ input, select, textarea {
 				}
 
 				ul.social li a.fa-facebook {
-					background: #3c5a98;
+					background: #1849ab;
 				}
 
 					ul.social li a.fa-facebook:hover {
@@ -1975,6 +1977,14 @@ input, select, textarea {
 						background: #ea3723;
 					}
 
+				ul.social li a.fa-github {
+						background: #120201;
+					}
+	
+						ul.social li a.fa-github:hover {
+							background: #ea3723;
+						}
+
 /* Icons */
 
 	.icon {
@@ -2015,13 +2025,13 @@ input, select, textarea {
 		.icon.featured {
 			position: relative;
 			display: inline-block;
-			background-color: #d52349;
+			background-color: #9f0808;
 			width: 9em;
 			padding: 1.75em 0 0.75em 0;
 			border-top-left-radius: 5px;
 			border-top-right-radius: 5px;
 			margin: 0 0 4.5em 0;
-			cursor: default;
+			cursor: pointer;
 		}
 
 			.icon.featured:before {
@@ -2035,7 +2045,7 @@ input, select, textarea {
 				position: absolute;
 				bottom: -1.95em;
 				left: 0;
-				border-top: solid 2em #d52349;
+				border-top: solid 2em #9f0808;
 				border-left: solid 4.5em transparent;
 				border-right: solid 4.5em transparent;
 			}
@@ -2066,7 +2076,7 @@ input, select, textarea {
 
 	#header {
 		position: relative;
-		background: #ffffff;
+		background: #ffffff ;
 		border-bottom: solid 1px #ccc;
 		padding: 5em 0 4em 0;
 		text-align: center;
@@ -2117,7 +2127,7 @@ input, select, textarea {
 				}
 
 				#nav > ul > li.current > a {
-					background: #d52349;
+					background: #9f0808;
 					color: #fff !important;
 					font-weight: 700;
 				}
@@ -2173,36 +2183,38 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		background: #CCE8F4 url("../../images/pic01.jpg");
+		background:url("images/img01.jpeg");
 		background-position: center center;
-		background-size: auto 100%;
+		background-size: cover;
 		background-repeat: no-repeat;
 		text-align: center;
 		position: relative;
-		padding: 8em 0;
-		margin: 4em 0 0 0;
+		padding: 8em 0em;
+		margin: 0em 0em 0em 0em;
 	}
 
 		#banner header {
-			background-color: rgba(34, 30, 31, 0.98);
-			display: inline-block;
-			padding: 2.5em 5em;
-			border-radius: 5px;
+			background-color: url("images/bg.png");
+			display:contents;
+			padding: 2.5em 10em;
+			border-radius: 10px;
 		}
 
 			#banner header h2 {
-				color: #fff;
+				color: #181818;
 				font-weight: 700;
-				font-size: 2.5em;
+				font-family:Georgia, 'Times New Roman', Times, serif;
+				font-style: oblique;
+				font-size: 4.5em;
 				margin: 0 0 0.65em 0;
 			}
 
 			#banner header p {
-				color: #d52349;
+				color: #9f0808;
 				padding: 0;
-				font-style: normal;
+				font-style:italic;
 				margin: 0;
-				font-size: 1.5em;
+				font-size: 2.0em;
 			}
 
 /* Intro */
@@ -2300,7 +2312,7 @@ input, select, textarea {
 			top: 0;
 			left: 0;
 			width: 100%;
-			background: url("images/bg01.png");
+			background: url("images/bg01.png"); 
 			background-size: 100% 100%;
 			z-index: 0;
 			opacity: 0.5;
@@ -2797,6 +2809,7 @@ input, select, textarea {
 					left: 15px;
 					top: 15px;
 					margin: -40px 0 40px -30px;
+					width: 50em;
 				}
 
 				.box.post header {
@@ -2865,6 +2878,7 @@ input, select, textarea {
 			.icon.featured {
 				width: 8em;
 				margin: 0 0 3em 0;
+				cursor: pointer;
 			}
 
 				.icon.featured:after {
