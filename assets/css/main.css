@@ -1603,6 +1603,62 @@ input, select, textarea {
 			margin-bottom: 0;
 		}
 
+
+
+/*Resume*/
+
+		.resume {
+			font-family: Georgia, 'Times New Roman', Times, serif;
+		}
+
+		#resume-head {
+			text-align: center;
+		}
+		.resume-line1, 
+		.resume-line2 {
+			vertical-align: top;
+			display: inline-block;
+		}
+
+		.resume-line2 {
+			width: 60%;  
+
+		}
+
+		.resume-line2 {
+			text-align: right;
+			margin-left: 25em;
+			width: 39%;   
+
+		}
+
+		.resume-sections{
+			text-align: left;
+			font-family: Georgia, 'Times New Roman', Times, serif;
+		
+		}
+
+		.resume-lines{
+			padding: 0 0 0 0;
+		}
+
+
+/*Resume bullet points*/
+
+	.point-list {
+		list-style: none;
+		padding-top: 2.5em; /* Adjust as needed */
+		margin-bottom: 20px;
+}
+
+		.point-list li{
+			padding-left: 20px; /* Adjust as needed */
+			background: url('images/arrow.jpg') no-repeat left center; /* Replace 'arrow.png' with your arrow image */
+			background-size: 16px; /* Adjust as needed */
+			
+		
+		}
+
 /* Button */
 
 	input[type="button"],
@@ -2851,6 +2907,14 @@ input, select, textarea {
 
 			ul.dates h3 {
 				margin: 0 0 0.5em 0;
+			}
+
+			/*Resume dates*/ 
+
+		.timelines{
+			margin-right: 10px;
+			text-align: right;
+
 			}
 
 		/* Links */

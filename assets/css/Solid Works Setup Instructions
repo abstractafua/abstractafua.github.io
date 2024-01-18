@@ -1,0 +1,25 @@
+Part in and Part mm setup
+
+Settings
+options >> Display>> tangent lines Removed
+
+Image Quality>> half & half
+unit mm 
+part template part milimeter
+unit IPS save as Part inch 
+
+Should have more parts afterwards 
+
+
+Orthographic View in In part mm 
+
+make views a sketchmode if you want 
+
+Zoom >> Command G
+Zoom >> hold shift
+CTRL clikc to pan object around
+Right clikc 4 option mouse >> Option >> customize >> mouse >> gesture >> 8 
+
+
+Top pkane >> circle >> give a dimension >> asxcii > 100 > POINT DISTANCE 150 
+S key for dimensions
