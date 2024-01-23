@@ -32,8 +32,10 @@
 
 						<!--Search Tool -->
 						<div class="search-container">
-								<input type="search" placeholder="Search for experience and skills" name="search-input">
+							<div class="Search">
+								<input type="search" placeholder="Search for experience and skills" id="find" onkeyup="search()">
 								<button type="submit">Search</button>
+							</div>
 						</div>
 
 				</section>
@@ -244,8 +246,6 @@
 		</div>
 			<div class="col-12">
 
-
-
 			</div>
 		</div>
 	</div>
@@ -253,7 +253,23 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="search.js"></script>
+		<script type="text/javascript">
+			function search() {
+			let filter = document.getElementById('find').value.toUpperCase();
+			let item = document.querySelectorAll('.product');
+			let l = document.getElementsByTagName('h3');
+			for(var i = 0;i<=l.length;i++){
+			let a=item[i].getElementsByTagName('h3')[0];
+			let value=a.innerHTML || a.innerText || a.textContent;
+			if(value.toUpperCase().indexOf(filter) > -1) {
+			item[i].style.display="";
+			}
+			else{
+			item[i].style.display="none";
+		}
+			}
+			}
+			</script>
 	</body>
 </html>
 

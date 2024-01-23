@@ -1778,6 +1778,7 @@ input, select, textarea {
 			margin: 0 2em 2em 0;
 		}
 
+
 /* List */
 
 	ul {
@@ -1797,6 +1798,15 @@ input, select, textarea {
 		ol li {
 			padding-left: 0.25em;
 		}
+
+
+		/*Media*/
+
+		.vids { 
+
+			align-content: center;
+			justify-content: center;}
+	
 
 /* Actions */
 
@@ -2241,12 +2251,11 @@ input, select, textarea {
 	#banner {
 		background:url("images/img01.jpeg");
 		background-position: center center;
-		background-size: cover;
 		background-repeat: no-repeat;
 		text-align: center;
 		position: relative;
 		padding: 8em 0em;
-		margin: 0em 0em 0em 0em;
+		margin: 4em 0em 0em 0em;
 	}
 
 		#banner header {
@@ -2865,7 +2874,7 @@ input, select, textarea {
 					left: 15px;
 					top: 15px;
 					margin: -40px 0 40px -30px;
-					width: 50em;
+					width: 20em;
 				}
 
 				.box.post header {
