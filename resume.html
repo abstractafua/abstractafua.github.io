@@ -34,11 +34,12 @@
 						<!--Search Tool -->
 						<div class="search-container">
 							<div class="Search">
-								<input type="text" placeholder="Search for experience and skills" id="find" onclick="search()">
-								<button type="submit">Search</button>
+								<input type="text" placeholder="Search for experience and skills" id="input" />
+								<input type ="button" id = "searchBtn" value="search"  onclick="search()"/>
+								<!-- <button type="submit">Search</button> -->
 							</div>
 						</div>
-
+ `
 				</section>
 			</header>
 
@@ -322,7 +323,7 @@
 				<div class="container">
 					<div class="row">
 						
-						<div class="col-4 col-12-medium">
+						<div class="col-4 col-12-medium" id ="return">
 							<section>
 								<header>
 									<h2>Who Am I</h2>
@@ -380,20 +381,22 @@
 </section>
 		</div>
 
-		<script>
+		<script type ="text/javascript">
+
+			const p = document.getElementById("main");
+
 			function search() {
-				var searchValue = document.getElementById("find").value.toLowerCase();
-				var sections = document.querySelectorAll(".resume-sections");
-	
-				sections.forEach(function (section) {
-					var sectionText = section.innerText.toLowerCase();
-	
-					if (sectionText.includes(searchValue)) {
-						section.closest("section").style.display = "block";
-					} else {
-						section.closest("section").style.display = "none";
-					}
-				});
+
+				let input = document.getElementById("input").value;
+				console.log("search hello")
+
+
+				if (input !== ""){
+					let regExp = new RegExp(input, "gi");
+					p.innerHTML = (p.textContent).replace(regExp, "<mark>$&</mark>");
+
+				}
+				
 			}
 		</script>
 	</body>
