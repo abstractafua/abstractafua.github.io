@@ -1572,17 +1572,28 @@ input, select, textarea {
 		background: #ffffff;
 		border-bottom: solid 1px #ccc;
 		padding: 2.75em 1.75em 2.75em 1.75em;
-		size: 10em 10em
+		size: 15em 15em
 	}
 
 		.box .image.featured {
 			position: relative;
-			width: auto;
-			left: 1.75em;
-			top: 1.75em;
+			width: 47em;
+			left: 13em;
+			top: 3em;
 			margin: -4.5em 0 4.25em -3.5em;
 			
 		}
+
+		.box .image.featured.pro {
+			left: 55px;
+			top: 15px;
+			margin: -40px 0 40px -30px;
+			width: 20em;
+	
+
+			
+		}
+
 
 		.box.post header {
 			padding-top: 1em;
@@ -2871,7 +2882,7 @@ input, select, textarea {
 			}
 
 
-		/* Box */
+		/*  */
 
 			.box {
 				padding: 25px 15px 20px 15px;
@@ -2881,7 +2892,7 @@ input, select, textarea {
 					left: 15px;
 					top: 15px;
 					margin: -40px 0 40px -30px;
-					width: 20em;
+					width: 15em;
 				}
 
 				.box.post header {
