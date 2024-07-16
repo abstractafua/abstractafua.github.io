@@ -1770,11 +1770,11 @@ input, select, textarea {
 		outline: 0;
 	}
 
-		.image img {
-			display: block;
-			width: 100%;
-		}
-
+	.image img {
+		display: inline-block;
+		width: 100%;
+		height: 15em;
+	}
 		.image.centered {
 			display: block;
 			margin: 0 0 2em 0;
