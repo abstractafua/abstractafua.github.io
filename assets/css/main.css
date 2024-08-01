@@ -1585,9 +1585,7 @@ input, select, textarea {
 		}
 		.box .image.featured {
 			position: relative;
-			width: auto;
-			left: 1.75em;
-			top: 1.75em;
+			top: 4.5em;
 			margin: -4.5em 0 4.25em -3.5em;
 			
 		}
@@ -1600,6 +1598,15 @@ input, select, textarea {
 			width: 20em;
 	
 		}
+
+
+		.box .image.featured.pro img{
+			display: inline-block;
+		width: 100%;
+		height: 15em;
+	
+		}
+
 
 
 		.box.post header {
@@ -1772,8 +1779,17 @@ input, select, textarea {
 
 	.image img {
 		display: inline-block;
-		width: 100%;
 		height: 15em;
+
+	}
+
+
+
+	.d-image img {
+	    margin: 0em 15em 0em 10em;
+    display: inline-block;
+    width: fit-content;
+    max-width: 50vw;
 	}
 		.image.centered {
 			display: block;
