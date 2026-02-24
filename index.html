@@ -1,322 +1,48 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Afua Frempong &#8212; Software Engineer</title>
+    <meta name="description" content="Portfolio of Afua Frempong, an aspiring Software Engineer graduating from UBC in 2026." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="src/styles/main.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+      // Load all JSX files in order, concatenate, then transpile + eval as one unit
+      // so every component is defined before App.jsx references them.
+      const files = [
+        'src/components/Navbar.jsx',
+        'src/sections/Hero.jsx',
+        'src/sections/About.jsx',
+        'src/sections/Experience.jsx',
+        'src/sections/Projects.jsx',
+        'src/sections/Designs.jsx',
+        'src/sections/Photography.jsx',
+        'src/sections/Contact.jsx',
+        'src/App.jsx',
+      ];
 
-<html>
-	<head>
-		<title>Afua's Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="homepage is-preload">
-		<div id="page-wrapper">
-
-			<!-- Header -->
-				<section id="header">
-
-					<!-- Logo -->
-						<h1><a href="index.html"></a></h1>
-
-						<h2>
-
-					  <!-- Nav -->
-					  <nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="projects.html">Projects</a></li>
-							<li class="current"><a href="designs.html">Designs</a></li>
-							<li><a href="resume.html">Master Resume</a></li>
-						</ul>
-					</nav>
-
-					</h2>
-
-					<!-- Banner -->
-						<section id="banner">
-							<header>
-								<h2>AFUA FREMPONG</h2>
-								<p>An Aspiring & Creative Software Engineer</p>
-							</header>
-						</section>
-
-					<!-- Intro -->
-						<section id="intro" class="container">
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<section class="first">
-										<a href="projects.html"><i class="icon solid featured fa-cog"></i></a>
-										<header>
-											<h2>PROJECTS</h2>
-										</header>
-										<p> Personal, Academic and Growing Projects </p>
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="middle">
-										<a href="designs.html"><i class="icon solid featured alt fa-bolt"></i></a>
-										<header>
-											<h2>DESIGNS</h2>
-										</header>
-										<p>Every design I've ever been proud of</p>
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="last">
-										<a href="resume.html"><i class="icon solid featured alt2 fa-star"></i></a>
-										<header>
-											<h2>MASTER RESUME</h2>
-										</header>
-										<p> A comprehensive list of all my work experience</p>
-									</section>
-								</div>
-							</div>
-							<footer>
-								<ul class="actions">
-									<li><a href="projects.html" class="button large">See my work</a></li>
-									<li><a href="resume.html#footer" class="button alt large">Learn More About Me</a></li>
-								</ul>
-							</footer>
-						</section>
-
-				</section>
-
-				<!-- Extra Body -->
-				<section>
-					<header class="major">
-						<h2>My Photography</h2>
-					</header>
-
-					<div class="row">
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img16.JPG" alt=""/></a>
-								<figcaption><time datetime="2019-07-25">July 7th, 2019</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img11.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">August 1st, 2019</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img14.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">April 20th, 2019</time></figcaption>
-							</figure>
-							</section>
-
-						</div>
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img13.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">December 11th, 2018</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img12.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">June 15th, 2019</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img15.JPG" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">July 7th, 2018</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img10.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">May 22nd, 2019</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img9.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">July 1st, 2019</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img8.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">August 16th, 2019</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img7.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">November 3rd, 2020</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img6.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">February 29th, 2018</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img5.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">July 30th, 2018</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img4.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">July 30th, 2018</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img0.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">July 30th, 2018</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img3.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">August 1st, 2018</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img2.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">March 27th, 2017</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-
-						<div class="col-6 col-12-small">
-							<section class="box">
-								<figure>
-								<a href="#" class="image featured home"><img src="images/img1.jpg" alt=""/></a>
-								<figcaption><time datetime="2018-09-01">Undated</time></figcaption>
-							</figure>
-							</section>
-						</div>
-
-
-					
-					</div>
-				</section>
-
-<!-- Footer -->
-<section id="footer">
-	<div class="container">
-		<div class="row">
-			
-			<div class="col-4 col-12-medium">
-				<section>
-					<header>
-						<h2>About me</h2>
-					</header>
-					<a href="#" class="image featured"><img src="images/IMG_8832.png" alt="A draw picture of a short haired girl" /></a>
-					<p>
-					My name is  &nbsp; <strong> Afua Frempong</strong> &nbsp; and I am a third year Computer Science Major interested in Mobile Development, Database Analysis and Software Development.
-					My hobbies include biking, photography, design & curation.	
-					</p>		
-				</section>
-			</div>
-			
-			<div class="col-4 col-6-medium col-12-small">
-				<section>
-					
-				</section>
-			</div>
-			<div class="col-4 col-12-medium">
-				<section>
-					<header>
-						<h2>Connect With Me</h2>
-					</header>
-					<ul class="social">
-						<li><a class="icon brands fa-linkedin" href="https://www.linkedin.com/in/afua-frempong-798218258/"><span class="label">LinkedIn</span></a></li>
-						<li><a class="icon brands fa-facebook" href="https://www.facebook.com/afua.frempong.7"><span class="label">Facebook</span></a></li>
-						<li><a class="icon brands fa-github" href="https://github.com/abstractafua"><span class="label">Github</span></a></li>
-					</ul>
-					<ul class="contact">
-				
-						<li>
-							<h3>Mail</h3>
-							<p><a href="#">afuaf2@gmail.com</a></p>
-						</li>
-						<li>
-							<h3>Phone</h3>
-							<p>(587) 575-1252</p>
-						</li>
-					</ul>
-				</section>
-			</div>
-			<div class="col-12">
-
-			</div>
-		</div>
-	</div>
-</section>
-
-
-
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+      Promise.all(files.map(f => fetch(f).then(r => r.text())))
+        .then(sources => {
+          const combined = sources.join('\n\n');
+          const transpiled = Babel.transform(combined, { presets: ['react'] }).code;
+          // eslint-disable-next-line no-eval
+          eval(transpiled);
+        })
+        .catch(err => {
+          console.error('Portfolio failed to load:', err);
+          document.getElementById('root').innerHTML =
+            '<p style="color:#e8a045;font-family:monospace;padding:2rem">Failed to load portfolio scripts. If running locally, please use a local server (e.g. VS Code Live Server extension).</p>';
+        });
+    </script>
+  </body>
 </html>

@@ -1,0 +1,28 @@
+- CSV
+
+191716,ebf2fa,a30b37,2978a0
+
+- With #
+
+#191716, #ebf2fa, #a30b37, #2978a0
+
+- Array
+
+["191716","ebf2fa","a30b37","2978a0"]
+
+- Object
+
+{"Carbon Black":"191716","Alice Blue":"ebf2fa","Cherry Rose":"a30b37","Cerulean":"2978a0"}
+
+- Extended Array
+
+[{"name":"Carbon Black","hex":"191716","rgb":[25,23,22],"cmyk":[0,8,12,90],"hsb":[20,12,10],"hsl":[20,6,9],"lab":[8,1,1]},{"name":"Alice Blue","hex":"ebf2fa","rgb":[235,242,250],"cmyk":[6,3,0,2],"hsb":[212,6,98],"hsl":[212,60,95],"lab":[95,-1,-5]},{"name":"Cherry Rose","hex":"a30b37","rgb":[163,11,55],"cmyk":[0,93,66,36],"hsb":[343,93,64],"hsl":[343,87,34],"lab":[35,57,19]},{"name":"Cerulean","hex":"2978a0","rgb":[41,120,160],"cmyk":[74,25,0,37],"hsb":[200,74,63],"hsl":[200,59,39],"lab":[48,-10,-28]}]
+
+- XML
+
+<palette>
+  <color name="Carbon Black" hex="191716" r="25" g="23" b="22" />
+  <color name="Alice Blue" hex="ebf2fa" r="235" g="242" b="250" />
+  <color name="Cherry Rose" hex="a30b37" r="163" g="11" b="55" />
+  <color name="Cerulean" hex="2978a0" r="41" g="120" b="160" />
+</palette>
