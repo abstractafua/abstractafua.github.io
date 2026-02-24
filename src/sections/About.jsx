@@ -2,9 +2,10 @@
 function About() {
   const skills = {
     'Languages': ['Java', 'C', 'Python', 'JavaScript','Typescript', 'SQL', 'R', 'PHP', 'HTML/CSS', 'XML', 'JSON'],
-    'Frameworks & Tools': ['React', 'Excel', 'Generative & Agentic AI Models', 'Microsoft Office 365', 'Node.js', 'Android Studio', 'Git/GitHub', 'Tableau', 'Power BI', 'Jupyter', 'Postman', 'SolidWorks CAD', 'eclipse','VS Code','Snowflake', 'DMBMS','CRM Systems', 'Figma', 'Miro', 'Confluence'],
+    'Frameworks & Tools': ['React', 'Docker','Microsoft Excel','Snowflake', 'Power BI','Generative & Agentic AI Models', 'Postman','JIRA', 'Pytest','Microsoft Office 365', 'Database Management Systems','Node.js', 'Android Studio', 'Git/GitHub', 
+      'Tableau', 'Jupyter',  'SolidWorks CAD', 'CRM Systems','VS Code', 'Figma', 'Miro', 'Confluence'],
     'Soft Skills': ['Requirement Analysis', 'Critical Thinking', 'Active listening', 'Team Collaboration', 'Problem-solving','Emotional Intelligence','Bilingual (EN/FR)'],
-    'Technical Skills': ['Data Visualization', 'Machine Learning', 'Statistical Analysis', 'Web Development', 'Solution Design', 'Object Oriented Programming', 'Data Structures']
+    'Technical Skills': ['Data Visualization', 'Technical Translation', 'Machine Learning', 'Statistical Analysis', 'Web Development', 'Solution Design', 'Object Oriented Programming', 'Data Structures & Algorithms']
   };
 
 
@@ -24,28 +25,25 @@ function About() {
         React.createElement('div', { className: 'about-text' },
           React.createElement('div', { className: 'section-header reveal' },
             React.createElement('span', { className: 'section-label' }, '01. About Me'),
-            React.createElement('h2', { className: 'section-title' }, 'The Person Behind the Code')
+            React.createElement('h2', { className: 'section-title' }, 'Behind the Screen')
           ),
 
           React.createElement('p', { className: 'reveal reveal-delay-1' },
             'Hi I\'m ', React.createElement('span', null, 'Afua'),
             ' — a Computer Science student at the ', React.createElement('span', null, 'University of British Columbia'),
-            ' graduating in 2026. I\'m passionate about using technology to solve real problems. I achieve my mission by leveraging mobile apps, data platforms, product design, troubleshooting and intuitive web sites.'
+            ' graduating in Spring of 2026. I\'m passionate about using technology to solve real problems.'
           ),
 
           React.createElement('p', { className: 'reveal reveal-delay-2' },
-            'My work spans — from Android dev in Java to SQL pipelines, from solution designs to data analysis using Python. I\'ve had the chance to learn and apply my skills at organizations like ',
+            'My work spans from application development to data dashboards and from solution designs to data analysis using SQL. I\'ve had the chance to learn and apply my skills during my time at UBC as well as with private and public organizations such as ',
             React.createElement('span', null, 'Symend'),
             ' and the ',
-            React.createElement('span', null, 'Government of Canada (Innovation, Science and Economic Development Canada)'),
+            React.createElement('span', null, 'Government of Canada'),
             '.'
           ),
 
           React.createElement('p', { className: 'reveal reveal-delay-2' },
-            'Away from my work, you\'ll find me biking, curating music playlists, shooting photography, or making digital art. I\'m fully bilingual in ',
-            React.createElement('span', null, 'English and French'),
-            '.'
-          ),
+            'Away from my work, you\'ll find me biking, curating spotify playlists, shooting photography, or making digital art.'),
 
           // Skills
           ...Object.entries(skills).map(([category, items], i) =>

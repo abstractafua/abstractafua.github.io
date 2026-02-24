@@ -13,7 +13,7 @@ function Hero() {
       // Badge
       React.createElement('div', { className: 'hero-badge' },
         React.createElement('span', { className: 'hero-badge-dot' }),
-        'Available for opportunities · Graduating 2026'
+        'Available for opportunities'
       ),
 
       // Name
@@ -23,13 +23,13 @@ function Hero() {
 
       // Title
       React.createElement('p', { className: 'hero-title' },
-        React.createElement('strong', null, 'Aspiring Technical Leader'),
-        ' · UBC Computer Science'
+        React.createElement('strong', null, 'Solutions · Technology · Design'),
+        ' · Incoming UBC Computer Science Graduate'
       ),
 
       // Description
       React.createElement('p', { className: 'hero-description' }, 
-         'I\'m passionate about building and providing solutions that inform and benefit the people around me. I strive to create thoughtful digital experiences - From mobile apps and full-stack websites, to data visualizations and creative solution design.'
+         'I\'m passionate about providing and building solutions that inform and benefit the people around me. From mobile apps and full-stack websites, to data visualizations and creative solution design  - I strive to create thoughtful digital experiences.'
       ),
 
       // CTAs

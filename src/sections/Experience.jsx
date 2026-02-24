@@ -101,7 +101,7 @@ function Experience() {
     {
       company: 'UBC SUO Red Cross',
       role: 'Social Media Manager',
-      date: 'Sep 2023 – Ongoing',
+      date: 'Sep 2023 – Sep 2024',
       location: 'Kelowna, BC',
       bullets: [
         'Used Canva and Adobe Suite to create visually engaging posts; grew club online engagement by 33.6% in the first term.',
@@ -155,12 +155,12 @@ function Experience() {
   const certifications = [
      
     {
-      title: 'Learning Hubspot : CRM basics',
+      title: 'Learning Hubspot : CRM Basics',
       date: 'February 2026',
       issuer: 'LinkedIn Learning',
     },
     {
-      title: 'Zendesk Customer Service Professional certificate',
+      title: 'Zendesk Customer Service Professional Certificate',
       date: 'Ongoing',
       issuer: 'LinkedIn Learning',
     },
