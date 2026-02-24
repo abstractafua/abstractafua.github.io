@@ -1,8 +1,8 @@
 /* ============================================================
    AFUA FREMPONG — PORTFOLIO STYLES
-   Theme: Deep navy with Golden Yellow accent + Cerulean highlights
+   Theme: Deep navy with Bright Yellow accent + Cerulean highlights
    Palette: Navy #0E103D · White #ffffff
-            Golden Yellow #EEB902 · Cerulean #2978a0
+            Bright Yellow #F5D547 · Cerulean #2978a0
    ============================================================ */
 
 /* ---------- CSS Custom Properties ---------- */
@@ -11,16 +11,16 @@
   --bg-secondary:  #090b30;           /* darker navy for alt rows          */
   --bg-card:       #161849;           /* lifted card surface               */
   --bg-card-hover: #1e2158;           /* card hover state                  */
-  --accent:        #EEB902;           /* Golden Yellow — primary accent    */
-  --accent-dim:    #c49502;           /* deeper gold                       */
-  --accent-glow:   rgba(238, 185, 2, 0.15);
+  --accent:        #F5D547;           /* Bright Yellow — primary accent    */
+  --accent-dim:    #d4b520;           /* deeper yellow                     */
+  --accent-glow:   rgba(245, 213, 71, 0.15);
   --accent2:       #2978a0;           /* Cerulean — secondary accent       */
   --accent2-glow:  rgba(41, 120, 160, 0.18);
   --text-primary:  #ffffff;           /* bright white — main text          */
   --text-secondary:#c8d8ec;           /* light blue-white                  */
   --text-muted:    #6b7ea0;           /* subdued labels                    */
   --border:        #232660;           /* subtle navy border                */
-  --border-accent: rgba(238, 185, 2, 0.40);
+  --border-accent: rgba(245, 213, 71, 0.40);
   --radius-sm:     6px;
   --radius-md:     12px;
   --radius-lg:     20px;
@@ -28,7 +28,7 @@
   --font-mono:     'Fira Code', 'Courier New', monospace;
   --transition:    0.25s ease;
   --shadow-card:   0 4px 24px rgba(0,0,0,0.55);
-  --shadow-glow:   0 0 32px rgba(238, 185, 2, 0.14);
+  --shadow-glow:   0 0 32px rgba(245, 213, 71, 0.14);
   --nav-height:    64px;
 }
 
@@ -281,7 +281,7 @@ section.page-section:nth-child(even) {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(238,185,2,0.10) 0%, transparent 70%),
+  background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(245,213,71,0.10) 0%, transparent 70%),
               radial-gradient(ellipse 40% 50% at 10% 90%, rgba(41,120,160,0.08) 0%, transparent 60%);
   pointer-events: none;
 }
