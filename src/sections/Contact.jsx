@@ -54,7 +54,7 @@ function Contact() {
         // Left — info
         React.createElement('div', { className: 'contact-text reveal' },
           React.createElement('p', null,
-            "I'm actively looking for full-time software engineering roles starting in 2026. If you have an opportunity that aligns with my experience in mobile development, full-stack web, or data analysis — let's talk."
+            "I'm actively looking for full-time technical roles starting in 2026. If you have an opportunity that aligns with my experience — let's talk."
           ),
           React.createElement('div', { className: 'contact-links' },
             ...links.map(link =>

@@ -3,6 +3,23 @@ function Projects() {
   const [filter, setFilter] = React.useState('All');
 
   const projects = [
+     
+    {
+      title: 'co2nnections',
+      desc: 'Network science research project analyzing the structure of worldwide and Canadian domestic airline networks, with a focus on CO₂ emissions and air connectivity. Constructs directed graphs from OpenFlights data, computes degree, betweenness, and closeness centrality for Canadian airports, calculates great-circle route distances using the Haversine formula, and applies Louvain community detection to identify high-emission airport clusters.',
+      tags: ['Data', 'R', 'Network Science', 'Analysis'],
+      image: 'images/co2nnections-preview.png',
+      code: 'https://github.com/abstractafua/co2nnections',
+      type: 'Data',
+    },
+    {
+      title: 'Project Insights (Capstone)',
+      desc: 'AI-powered developer portfolio and resume generation tool that analyzes GitHub repositories and local codebases. Parses code structure with Tree-sitter, extracts skills and project contributions using the Gemini LLM, and generates polished LaTeX resumes and HTML portfolio pages. Features a FastAPI backend, SQLite database, Electron desktop app, Docker deployment, and a full CI/CD pipeline.',
+      tags: ['Web', 'Python', 'AI', 'Full-Stack'],
+      image: 'images/capstone-preview.png',
+      code: 'https://github.com/COSC-499-W2025/capstone-project-team-3',
+      type: 'AI',
+    },
     {
       title: 'Aid-Finder',
       desc: 'Android app that locates nearby food banks, shelters, and community resources for people facing housing or food insecurity. Implements Google Maps API for navigation.',
@@ -18,7 +35,24 @@ function Projects() {
       tags: ['Web', 'Full-Stack'],
       image: 'images/Screenshot 2024-07-30 at 10.32.38 PM.png',
       code: 'https://github.com/abstractafua',
+      demo: 'abstractafua.github.io/media/videoplayback.mp4',
       type: 'Web',
+    },
+     {
+      title: 'Plane Crash Data Analysis',
+      desc: 'Statistical write-up and data analysis on plane crash data mined from the WHO (World Health Organization). Includes regression models and visualizations in R.',
+      tags: ['Data', 'R', 'Analysis'],
+      image: 'images/p4.1.png',
+      code: 'https://colab.research.google.com/drive/1V440t-C8mG8DuWE8qM09UwL8Oe6i5nQK',
+      type: 'Data',
+    },
+     {
+      title: 'Super Bug Zapper',
+      desc: 'A real-time WebGL browser game where players race to eliminate growing bacteria colonies before they overtake a petri dish. Built entirely with raw WebGL and vanilla JavaScript — no game engine. Features time-delta-based growth animation, GPU-accelerated GLSL shaders, triangle-fan circle rendering, and Euclidean hit detection for mouse-click collision.',
+      tags: ['Game', 'WebGL', 'JavaScript', 'GLSL'],
+      image: 'images/bug-zapper-preview.png',
+      code: 'https://github.com/abstractafua/Bug-Zapper',
+      type: 'Game',
     },
     {
       title: 'Kicks!',
@@ -41,16 +75,9 @@ function Projects() {
       desc: 'FarmVille-style farming simulation game built in Java, featuring resource management, planting cycles, and animated game states.',
       tags: ['Game', 'Java'],
       image: 'images/p3.jpg',
-      code: 'https://github.com/abstractafua',
+      code: 'https://github.com/abstractafua/COSC-121-Project',
+      demo: 'abstractafua.github.io/media/_COSC 121-2024-T1B4-11-SW.mp4',
       type: 'Game',
-    },
-    {
-      title: 'Plane Crash Data Analysis',
-      desc: 'Statistical write-up and data analysis on plane crash data mined from the WHO. Includes regression models and visualizations in R.',
-      tags: ['Data', 'R', 'Analysis'],
-      image: 'images/p4.1.png',
-      code: 'https://github.com/abstractafua',
-      type: 'Data',
     },
     {
       title: 'Game Show Simulator',
@@ -58,6 +85,7 @@ function Projects() {
       tags: ['Game', 'Java'],
       image: 'images/p5.1.png',
       code: 'https://github.com/abstractafua',
+      demo: 'abstractafua.github.io/media/P5_Sample_Run.mp4',
       type: 'Game',
     },
     {
@@ -73,20 +101,22 @@ function Projects() {
       desc: 'Engineering design project using SolidWorks CAD — applied rapid prototyping principles and team-based design methodology.',
       tags: ['CAD', 'SolidWorks'],
       image: 'images/IMG_3615 copy.png',
-      code: 'https://github.com/abstractafua',
+      demo: 'abstractafua.github.io/media/_APSC 171-2024-T1B4-11-SW.mp4',
+      demo: 'abstractafua.github.io/media/sprinkler.mp4',
       type: 'CAD',
     },
     {
       title: 'This Portfolio',
       desc: 'You\'re looking at it! Built from scratch with React (CDN), modular JSX components, and a fully custom CSS design system.',
       tags: ['Web', 'React', 'CSS'],
-      image: 'images/Screenshot 2024-07-30 at 10.33.42 PM.png',
+      image: '',
       code: 'https://github.com/abstractafua/abstractafua.github.io',
       type: 'Web',
     },
+
   ];
 
-  const filters = ['All', 'Web', 'Mobile', 'Data', 'Game', 'CAD'];
+  const filters = ['All', 'Web', 'Mobile', 'Data', 'Game', 'AI', 'CAD'];
 
   const visible = filter === 'All' ? projects : projects.filter(p => p.type === filter);
 
@@ -115,7 +145,14 @@ function Projects() {
       // Grid
       React.createElement('div', { className: 'projects-grid' },
         ...visible.map((proj, i) =>
-          React.createElement('div', { key: proj.title, className: 'project-card' },
+          React.createElement('a', {
+            key: proj.title,
+            className: 'project-card',
+            href: proj.code,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            style: { textDecoration: 'none', color: 'inherit', display: 'block' }
+          },
 
             // Thumbnail
             React.createElement('div', { className: 'project-thumb-wrap' },

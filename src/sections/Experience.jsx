@@ -1,4 +1,4 @@
-// Experience section — tabbed: Work / Education / Volunteering
+// Experience section — tabbed: Work / Education / Volunteering / Certifications
 function Experience() {
   const [activeTab, setActiveTab] = React.useState('work');
 
@@ -155,7 +155,7 @@ function Experience() {
   const certifications = [
      
     {
-      title: 'learning Hubspot : CRM basics',
+      title: 'Learning Hubspot : CRM basics',
       date: 'February 2026',
       issuer: 'LinkedIn Learning',
     },
@@ -180,6 +180,7 @@ function Experience() {
     { key: 'work',        label: 'Work Experience', data: work        },
     { key: 'education',   label: 'Education',       data: education   },
     { key: 'volunteering',label: 'Volunteering',    data: volunteering},
+    { key: 'certifications',label: 'Certifications',data: certifications}
   ];
 
   const currentData = tabs.find(t => t.key === activeTab).data;
@@ -210,27 +211,40 @@ function Experience() {
       // Timeline
       React.createElement('div', { className: 'timeline reveal' },
         ...currentData.map((item, i) =>
-          React.createElement('div', { key: i, className: 'timeline-item' },
-            React.createElement('div', { className: 'timeline-dot' }),
-            React.createElement('div', { className: 'timeline-card' },
-              React.createElement('div', { className: 'timeline-meta' },
-                React.createElement('div', null,
-                  React.createElement('div', { className: 'timeline-company' }, item.company),
-                  React.createElement('div', { className: 'timeline-role' }, item.role),
-                  React.createElement('div', { className: 'timeline-location' },
-                    React.createElement('i', { className: 'fa-solid fa-location-dot' }),
-                    item.location
+          activeTab === 'certifications'
+            ? React.createElement('div', { key: i, className: 'timeline-item' },
+                React.createElement('div', { className: 'timeline-dot' }),
+                React.createElement('div', { className: 'timeline-card' },
+                  React.createElement('div', { className: 'timeline-meta' },
+                    React.createElement('div', null,
+                      React.createElement('div', { className: 'timeline-company' }, item.title),
+                      React.createElement('div', { className: 'timeline-role' }, item.issuer)
+                    ),
+                    React.createElement('span', { className: 'timeline-date' }, item.date)
                   )
-                ),
-                React.createElement('span', { className: 'timeline-date' }, item.date)
-              ),
-              React.createElement('ul', { className: 'timeline-bullets' },
-                ...item.bullets.map((b, j) =>
-                  React.createElement('li', { key: j }, b)
                 )
               )
-            )
-          )
+            : React.createElement('div', { key: i, className: 'timeline-item' },
+                React.createElement('div', { className: 'timeline-dot' }),
+                React.createElement('div', { className: 'timeline-card' },
+                  React.createElement('div', { className: 'timeline-meta' },
+                    React.createElement('div', null,
+                      React.createElement('div', { className: 'timeline-company' }, item.company),
+                      React.createElement('div', { className: 'timeline-role' }, item.role),
+                      React.createElement('div', { className: 'timeline-location' },
+                        React.createElement('i', { className: 'fa-solid fa-location-dot' }),
+                        item.location
+                      )
+                    ),
+                    React.createElement('span', { className: 'timeline-date' }, item.date)
+                  ),
+                  React.createElement('ul', { className: 'timeline-bullets' },
+                    ...item.bullets.map((b, j) =>
+                      React.createElement('li', { key: j }, b)
+                    )
+                  )
+                )
+              )
         )
       )
     )
