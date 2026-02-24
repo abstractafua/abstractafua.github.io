@@ -1,34 +1,34 @@
 /* ============================================================
    AFUA FREMPONG — PORTFOLIO STYLES
-   Theme: Deep navy with Burnt Orange accent + Cerulean highlights
-   Palette: Carbon Black #191716 · Alice Blue #ebf2fa
-            Burnt Orange #D65108 · Cerulean #2978a0
+   Theme: Deep navy with Golden Yellow accent + Cerulean highlights
+   Palette: Navy #0E103D · White #ffffff
+            Golden Yellow #EEB902 · Cerulean #2978a0
    ============================================================ */
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
-  --bg-primary:    #1F2041;           /* user-specified navy base          */
-  --bg-secondary:  #191c3a;           /* slightly deeper navy for alt rows */
-  --bg-card:       #252850;           /* lifted card surface               */
-  --bg-card-hover: #2d3060;           /* card hover state                  */
-  --accent:        #D65108;           /* Burnt Orange — primary accent     */
-  --accent-dim:    #a83e06;           /* deeper burnt orange               */
-  --accent-glow:   rgba(214, 81, 8, 0.15);
+  --bg-primary:    #0E103D;           /* deep navy base                    */
+  --bg-secondary:  #090b30;           /* darker navy for alt rows          */
+  --bg-card:       #161849;           /* lifted card surface               */
+  --bg-card-hover: #1e2158;           /* card hover state                  */
+  --accent:        #EEB902;           /* Golden Yellow — primary accent    */
+  --accent-dim:    #c49502;           /* deeper gold                       */
+  --accent-glow:   rgba(238, 185, 2, 0.15);
   --accent2:       #2978a0;           /* Cerulean — secondary accent       */
   --accent2-glow:  rgba(41, 120, 160, 0.18);
   --text-primary:  #ffffff;           /* bright white — main text          */
   --text-secondary:#c8d8ec;           /* light blue-white                  */
   --text-muted:    #6b7ea0;           /* subdued labels                    */
-  --border:        #2e3260;           /* subtle navy border                */
-  --border-accent: rgba(214, 81, 8, 0.40);
+  --border:        #232660;           /* subtle navy border                */
+  --border-accent: rgba(238, 185, 2, 0.40);
   --radius-sm:     6px;
   --radius-md:     12px;
   --radius-lg:     20px;
   --font-sans:     'Inter', system-ui, sans-serif;
   --font-mono:     'Fira Code', 'Courier New', monospace;
   --transition:    0.25s ease;
-  --shadow-card:   0 4px 24px rgba(0,0,0,0.45);
-  --shadow-glow:   0 0 32px rgba(214, 81, 8, 0.14);
+  --shadow-card:   0 4px 24px rgba(0,0,0,0.55);
+  --shadow-glow:   0 0 32px rgba(238, 185, 2, 0.14);
   --nav-height:    64px;
 }
 
@@ -150,7 +150,7 @@ section.page-section:nth-child(even) {
 }
 
 .navbar.scrolled {
-  background: rgba(31, 32, 65, 0.92);
+  background: rgba(14, 16, 61, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--border);
@@ -243,7 +243,7 @@ section.page-section:nth-child(even) {
   position: fixed;
   top: var(--nav-height);
   left: 0; right: 0;
-  background: rgba(31, 32, 65, 0.97);
+  background: rgba(14, 16, 61, 0.97);
   backdrop-filter: blur(16px);
   border-top: 1px solid var(--border);
   padding: 1.5rem 2rem 2rem;
@@ -281,7 +281,7 @@ section.page-section:nth-child(even) {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(214,81,8,0.12) 0%, transparent 70%),
+  background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(238,185,2,0.10) 0%, transparent 70%),
               radial-gradient(ellipse 40% 50% at 10% 90%, rgba(41,120,160,0.08) 0%, transparent 60%);
   pointer-events: none;
 }
@@ -686,7 +686,7 @@ section.page-section:nth-child(even) {
 .project-thumb-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(31,32,65,0.60);
+  background: rgba(14,16,61,0.60);
   display: flex;
   align-items: center;
   justify-content: center;

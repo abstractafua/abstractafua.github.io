@@ -30,7 +30,7 @@ function About() {
           React.createElement('p', { className: 'reveal reveal-delay-1' },
             'Hi I\'m ', React.createElement('span', null, 'Afua'),
             ' — a Computer Science student at the ', React.createElement('span', null, 'University of British Columbia'),
-            ' graduating in 2026. I\'m passionate about building and providing solutions that inform and benefit the people around me. I achieve my mission by leveraging mobile apps, data platforms, product design, troubleshooting and intuitive web sites.'
+            ' graduating in 2026. I\'m passionate about using technology to solve real problems. I achieve my mission by leveraging mobile apps, data platforms, product design, troubleshooting and intuitive web sites.'
           ),
 
           React.createElement('p', { className: 'reveal reveal-delay-2' },
@@ -42,7 +42,7 @@ function About() {
           ),
 
           React.createElement('p', { className: 'reveal reveal-delay-2' },
-            'Outside of code, you\'ll find me biking, curating music playlists, shooting photography, or making digital art. I\'m fully bilingual in ',
+            'Away from my work, you\'ll find me biking, curating music playlists, shooting photography, or making digital art. I\'m fully bilingual in ',
             React.createElement('span', null, 'English and French'),
             '.'
           ),

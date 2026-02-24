@@ -28,8 +28,8 @@ function Hero() {
       ),
 
       // Description
-      React.createElement('p', { className: 'hero-description' },
-        'I build thoughtful digital experiences — from mobile apps and full-stack platforms to data visualizations and creative designs. Passionate about using technology to solve real problems.'
+      React.createElement('p', { className: 'hero-description' }, 
+         'I\'m passionate about building and providing solutions that inform and benefit the people around me. I strive to create thoughtful digital experiences - From mobile apps and full-stack websites, to data visualizations and creative solution design.'
       ),
 
       // CTAs
