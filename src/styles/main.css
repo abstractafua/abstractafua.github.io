@@ -1,22 +1,26 @@
 /* ============================================================
    AFUA FREMPONG — PORTFOLIO STYLES
-   Theme: Dark professional with warm amber accent
+   Theme: Deep navy with Burnt Orange accent + Cerulean highlights
+   Palette: Carbon Black #191716 · Alice Blue #ebf2fa
+            Burnt Orange #D65108 · Cerulean #2978a0
    ============================================================ */
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
-  --bg-primary:    #0d0d0d;
-  --bg-secondary:  #141414;
-  --bg-card:       #1a1a1a;
-  --bg-card-hover: #222222;
-  --accent:        #e8a045;
-  --accent-dim:    #c4832a;
-  --accent-glow:   rgba(232, 160, 69, 0.18);
-  --text-primary:  #f0ece4;
-  --text-secondary:#a8a29a;
-  --text-muted:    #6b6560;
-  --border:        #2a2a2a;
-  --border-accent: rgba(232, 160, 69, 0.35);
+  --bg-primary:    #1F2041;           /* user-specified navy base          */
+  --bg-secondary:  #191c3a;           /* slightly deeper navy for alt rows */
+  --bg-card:       #252850;           /* lifted card surface               */
+  --bg-card-hover: #2d3060;           /* card hover state                  */
+  --accent:        #D65108;           /* Burnt Orange — primary accent     */
+  --accent-dim:    #a83e06;           /* deeper burnt orange               */
+  --accent-glow:   rgba(214, 81, 8, 0.15);
+  --accent2:       #2978a0;           /* Cerulean — secondary accent       */
+  --accent2-glow:  rgba(41, 120, 160, 0.18);
+  --text-primary:  #ffffff;           /* bright white — main text          */
+  --text-secondary:#c8d8ec;           /* light blue-white                  */
+  --text-muted:    #6b7ea0;           /* subdued labels                    */
+  --border:        #2e3260;           /* subtle navy border                */
+  --border-accent: rgba(214, 81, 8, 0.40);
   --radius-sm:     6px;
   --radius-md:     12px;
   --radius-lg:     20px;
@@ -24,7 +28,7 @@
   --font-mono:     'Fira Code', 'Courier New', monospace;
   --transition:    0.25s ease;
   --shadow-card:   0 4px 24px rgba(0,0,0,0.45);
-  --shadow-glow:   0 0 32px rgba(232, 160, 69, 0.12);
+  --shadow-glow:   0 0 32px rgba(214, 81, 8, 0.14);
   --nav-height:    64px;
 }
 
@@ -114,12 +118,12 @@ section.page-section:nth-child(even) {
 
 .btn-primary {
   background: var(--accent);
-  color: #0d0d0d;
+  color: #ffffff;
 }
 .btn-primary:hover {
-  background: #f5b55a;
+  background: var(--accent-dim);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(232, 160, 69, 0.35);
+  box-shadow: 0 6px 20px rgba(214, 81, 8, 0.35);
 }
 
 .btn-outline {
@@ -146,7 +150,7 @@ section.page-section:nth-child(even) {
 }
 
 .navbar.scrolled {
-  background: rgba(13, 13, 13, 0.92);
+  background: rgba(31, 32, 65, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--border);
@@ -205,14 +209,14 @@ section.page-section:nth-child(even) {
   margin-left: 1rem;
   padding: 0.45rem 1.1rem;
   background: var(--accent);
-  color: #0d0d0d;
+  color: #ffffff;
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 600;
   transition: background var(--transition), transform var(--transition);
 }
 .navbar-cta:hover {
-  background: #f5b55a;
+  background: var(--accent-dim);
   transform: translateY(-1px);
 }
 
@@ -239,7 +243,7 @@ section.page-section:nth-child(even) {
   position: fixed;
   top: var(--nav-height);
   left: 0; right: 0;
-  background: rgba(13, 13, 13, 0.97);
+  background: rgba(31, 32, 65, 0.97);
   backdrop-filter: blur(16px);
   border-top: 1px solid var(--border);
   padding: 1.5rem 2rem 2rem;
@@ -277,8 +281,8 @@ section.page-section:nth-child(even) {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(232,160,69,0.07) 0%, transparent 70%),
-              radial-gradient(ellipse 40% 50% at 10% 90%, rgba(232,160,69,0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(214,81,8,0.12) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 50% at 10% 90%, rgba(41,120,160,0.08) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -614,7 +618,7 @@ section.page-section:nth-child(even) {
 .exp-tab:hover {
   background: var(--accent);
   border-color: var(--accent);
-  color: #0d0d0d;
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -640,7 +644,7 @@ section.page-section:nth-child(even) {
 .filter-btn:hover {
   background: var(--accent);
   border-color: var(--accent);
-  color: #0d0d0d;
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -682,7 +686,7 @@ section.page-section:nth-child(even) {
 .project-thumb-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(13,13,13,0.55);
+  background: rgba(31,32,65,0.60);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -841,7 +845,7 @@ section.page-section:nth-child(even) {
 }
 .lightbox-close:hover {
   background: var(--accent);
-  color: #0d0d0d;
+  color: #ffffff;
   border-color: var(--accent);
 }
 
@@ -861,7 +865,7 @@ section.page-section:nth-child(even) {
   cursor: pointer;
   transition: all var(--transition);
 }
-.lightbox-nav:hover { background: var(--accent); color: #0d0d0d; border-color: var(--accent); }
+.lightbox-nav:hover { background: var(--accent); color: #ffffff; border-color: var(--accent); }
 .lightbox-nav.prev { left: 1.5rem; }
 .lightbox-nav.next { right: 1.5rem; }
 
