@@ -36,14 +36,26 @@
                    border: 1px solid #334155; transition: border-color 0.2s; }
   .project-card:hover { border-color: #6366f1; }
   .project-header { display: flex; justify-content: space-between; align-items: flex-start;
-                     gap: 10px; margin-bottom: 10px; }
+                     gap: 10px; margin-bottom: 6px; }
   .project-title { font-size: 1rem; font-weight: 700; color: #f1f5f9; }
-  .project-score { background: #312e81; color: #a5b4fc; padding: 3px 10px; border-radius: 99px;
-                    font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+  .project-type-badge { background: #1e3a5f; color: #7dd3fc; padding: 3px 10px; border-radius: 99px;
+                         font-size: 0.75rem; font-weight: 600; white-space: nowrap; }
+  .project-date { font-size: 0.78rem; color: #64748b; margin-bottom: 8px; }
   .project-summary { font-size: 0.85rem; color: #94a3b8; margin-bottom: 12px; }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .skill-tag { background: #0f172a; color: #818cf8; border: 1px solid #312e81;
                 padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+  .collab-intro { color: #94a3b8; font-size: 0.9rem; margin-bottom: 16px; }
+  .collab-table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid #334155; }
+  .collab-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .collab-table thead th { background: #1e293b; color: #94a3b8; text-align: left;
+                             padding: 10px 16px; font-weight: 600; text-transform: uppercase;
+                             font-size: 0.75rem; letter-spacing: 0.05em; }
+  .collab-table tbody tr { border-top: 1px solid #1e293b; }
+  .collab-table tbody tr:hover { background: #1e293b; }
+  .collab-name { padding: 10px 16px; color: #f1f5f9; font-weight: 500; }
+  .collab-commits { padding: 10px 16px; color: #818cf8; font-weight: 600; }
+  .collab-projects { padding: 10px 16px; color: #94a3b8; }
   footer { text-align: center; padding: 40px 20px; color: #475569; font-size: 0.8rem; }
 </style>
 </head>
@@ -60,7 +72,6 @@
 <div class="container">
   <div class="stats">
     <div class="stat"><div class="stat-value">8</div><div class="stat-label">Projects</div></div>
-    <div class="stat"><div class="stat-value">46%</div><div class="stat-label">Avg Score</div></div>
     <div class="stat"><div class="stat-value">25</div><div class="stat-label">Skills</div></div>
     <div class="stat"><div class="stat-value">15</div><div class="stat-label">Languages</div></div>
     <div class="stat"><div class="stat-value">17,342</div><div class="stat-label">Lines of Code</div></div>
@@ -72,70 +83,144 @@
       <div class="chart-card"><h3>Top Skills</h3><canvas id="skillsChart"></canvas></div>
     </div>
   </div>
+  
+  <div class="section">
+    <h2>🤝 Collaboration Network</h2>
+    <p class="collab-intro">Worked with 11 contributors across 68 project connections.</p>
+    <div class="collab-table-wrap">
+      <table class="collab-table">
+        <thead><tr><th>Collaborator</th><th>Commits</th><th>Projects</th></tr></thead>
+        <tbody>
+        <tr>
+            <td class="collab-name">Shreya Saxena</td>
+            <td class="collab-commits">561</td>
+            <td class="collab-projects">capstone_team-3_feb_2026</td>
+        </tr>
+        <tr>
+            <td class="collab-name">dabby04</td>
+            <td class="collab-commits">502</td>
+            <td class="collab-projects">capstone_team-3_feb_2026</td>
+        </tr>
+        <tr>
+            <td class="collab-name">Vanshika</td>
+            <td class="collab-commits">352</td>
+            <td class="collab-projects">capstone_team-3_feb_2026</td>
+        </tr>
+        <tr>
+            <td class="collab-name">kjassani</td>
+            <td class="collab-commits">244</td>
+            <td class="collab-projects">capstone_team-3_feb_2026</td>
+        </tr>
+        <tr>
+            <td class="collab-name">Karim Khalil</td>
+            <td class="collab-commits">137</td>
+            <td class="collab-projects">capstone_team-3_feb_2026</td>
+        </tr>
+        <tr>
+            <td class="collab-name">KarimKhalil33</td>
+            <td class="collab-commits">63</td>
+            <td class="collab-projects">capstone_team-3_feb_2026</td>
+        </tr>
+        <tr>
+            <td class="collab-name">copilot-swe-agent[bot]</td>
+            <td class="collab-commits">7</td>
+            <td class="collab-projects">capstone_team-3_feb_2026</td>
+        </tr>
+        <tr>
+            <td class="collab-name">afuaf</td>
+            <td class="collab-commits">6</td>
+            <td class="collab-projects">capstone_team-3_feb_2026</td>
+        </tr>
+        <tr>
+            <td class="collab-name">github-classroom[bot]</td>
+            <td class="collab-commits">4</td>
+            <td class="collab-projects">capstone_team-3_feb_2026</td>
+        </tr>
+        <tr>
+            <td class="collab-name">afuaf@student.ubc.ca</td>
+            <td class="collab-commits">2</td>
+            <td class="collab-projects">capstone_team-3_feb_2026</td>
+        </tr>
+        <tr>
+            <td class="collab-name">Adams Chen</td>
+            <td class="collab-commits">2</td>
+            <td class="collab-projects">capstone_team-3_feb_2026</td>
+        </tr></tbody>
+      </table>
+    </div>
+  </div>
   <div class="section">
     <h2>🚀 Projects</h2>
     <div class="projects">
         <div class="project-card">
             <div class="project-header">
                 <h3 class="project-title">capstone_team-3_feb_2026</h3>
-                <span class="project-score">100%</span>
+                <span class="project-type-badge">GitHub</span>
             </div>
+            <p class="project-date">📅 Feb 2026 – Feb 2026</p>
             <p class="project-summary">Across this project, the user created general technical documentation and README documentation. The documentation is primarily in the Software Engineering domain, aligning with their Technology background. It describes the system architecture and key design decisions. It captures core functional and non-functional requirements for the platform. It outlines parsing, analysis, and NLP-driven capabilities for working with non-code artifacts. It also discusses risks, testing, and reliability or performance considerations. Key technical achievements include : incremental development methodology with 247 targeted commits over 154 days of consistent code evolution, full-stack solution using TSX/Python with 257 source files and comprehensive project structure, demonstrated consistent development rhythm and sustainable coding practices, focused development approach with targeted, high-impact code changes, led development in: Python Development.</p>
             <div class="skill-tags"><span class="skill-tag">Collaboration</span> <span class="skill-tag">Communication</span> <span class="skill-tag">Problem Solving</span> <span class="skill-tag">Project Planning</span> <span class="skill-tag">Quality Assurance</span> <span class="skill-tag">Requirements Analysis</span> <span class="skill-tag">frontend</span> <span class="skill-tag">devops</span></div>
         </div>
         <div class="project-card">
             <div class="project-header">
                 <h3 class="project-title">capstone-project-team-3</h3>
-                <span class="project-score">85%</span>
+                <span class="project-type-badge">GitHub</span>
             </div>
+            <p class="project-date">📅 Nov 2025 – Nov 2025</p>
             <p class="project-summary">Across this project, the user created installation and setup guides and README documentation. The documentation is primarily in the Software Engineering domain, aligning with their Technology background. It describes the system architecture and key design decisions. It captures core functional and non-functional requirements for the platform. It outlines parsing, analysis, and NLP-driven capabilities for working with non-code artifacts. It also discusses risks, testing, and reliability or performance considerations. Key technical achievements include : incremental development methodology with 52 targeted commits over 42 days of consistent code evolution, full-stack solution using Python/Markdown with 52 source files and comprehensive project structure, demonstrated consistent development rhythm and sustainable coding practices, focused development approach with targeted, high-impact code changes, led development in: Python Development.</p>
             <div class="skill-tags"><span class="skill-tag">Collaboration</span> <span class="skill-tag">Communication</span> <span class="skill-tag">Quality Assurance</span> <span class="skill-tag">Requirements Analysis</span> <span class="skill-tag">devops</span> <span class="skill-tag">backend</span> <span class="skill-tag">Python</span> <span class="skill-tag">Markdown</span></div>
         </div>
         <div class="project-card">
             <div class="project-header">
                 <h3 class="project-title">gitdemo-main 2</h3>
-                <span class="project-score">66%</span>
+                <span class="project-type-badge">Local</span>
             </div>
+            <p class="project-date">📅 Jan 2026 – Jan 2026</p>
             <p class="project-summary">Across this project, the user created research or analysis documents and general technical documentation. The documentation is primarily in the Software Engineering domain, aligning with their Technology background. It captures core functional and non-functional requirements for the platform. It also discusses risks, testing, and reliability or performance considerations. Key technical achievements include : a comprehensive 0-line codebase across 3 files using Text, Markdown.</p>
             <div class="skill-tags"><span class="skill-tag">Communication</span> <span class="skill-tag">Quality Assurance</span> <span class="skill-tag">Requirements Analysis</span> <span class="skill-tag">Text</span> <span class="skill-tag">Markdown</span></div>
         </div>
         <div class="project-card">
             <div class="project-header">
                 <h3 class="project-title">non_code_projects</h3>
-                <span class="project-score">40%</span>
+                <span class="project-type-badge">Local</span>
             </div>
+            <p class="project-date">📅 Oct 2025 – Nov 2025</p>
             <p class="project-summary">Across this project, the user created tutorial or how-to documentation and installation and setup guides. The documentation is primarily in the AI / Machine Learning domain. It outlines parsing, analysis, and NLP-driven capabilities for working with non-code artifacts.</p>
             <div class="skill-tags"><span class="skill-tag">Project Planning</span> <span class="skill-tag">Quality Assurance</span></div>
         </div>
         <div class="project-card">
             <div class="project-header">
                 <h3 class="project-title">code_projects</h3>
-                <span class="project-score">37%</span>
+                <span class="project-type-badge">Local</span>
             </div>
+            <p class="project-date">📅 Oct 2025 – Nov 2025</p>
             <p class="project-summary"> Key technical achievements include : a comprehensive 272-line codebase across 6 files using C#, TypeScript, CSS, Java, Vue, C++, built solutions using Angular framework, modern development practices: Angular Hooks/Lifecycle (1 types), Angular State Management, Component Props/Data Flow (1 components), maintained excellent code quality with high maintainability score and well-structured functions, followed best practices with low-complexity, maintainable code structure.</p>
             <div class="skill-tags"><span class="skill-tag">backend</span> <span class="skill-tag">frontend</span> <span class="skill-tag">C#</span> <span class="skill-tag">TypeScript</span> <span class="skill-tag">CSS</span> <span class="skill-tag">Java</span> <span class="skill-tag">Vue</span> <span class="skill-tag">C++</span></div>
         </div>
         <div class="project-card">
             <div class="project-header">
                 <h3 class="project-title">html_scraper</h3>
-                <span class="project-score">35%</span>
+                <span class="project-type-badge">Local</span>
             </div>
+            <p class="project-date">📅 Jan 1980 – Dec 2024</p>
             <p class="project-summary"> Key technical achievements include : a comprehensive 513-line codebase across 7 files using JSON, CSS, Python, HTML, JavaScript, maintained excellent code quality with high maintainability score and well-structured functions, followed best practices with low-complexity, maintainable code structure, architected modular solution with 3 functions and 17 classes, maintained low complexity across all classes.</p>
             <div class="skill-tags"><span class="skill-tag">database</span> <span class="skill-tag">backend</span> <span class="skill-tag">frontend</span> <span class="skill-tag">JSON</span> <span class="skill-tag">CSS</span> <span class="skill-tag">Python</span> <span class="skill-tag">HTML</span> <span class="skill-tag">JavaScript</span></div>
         </div>
         <div class="project-card">
             <div class="project-header">
                 <h3 class="project-title">O-recipes</h3>
-                <span class="project-score">6%</span>
+                <span class="project-type-badge">GitHub</span>
             </div>
+            <p class="project-date">📅 May 2023 – Oct 2025</p>
             <p class="project-summary">Across this project, the user created README documentation. The documents collectively describe the goals, behaviour, and constraints of the project. Key technical achievements include : incremental development methodology with 7 targeted commits over 1 days of consistent code evolution, HTML/Markdown solution with focused development approach, maintained high development velocity with consistent daily contributions, focused development approach with targeted, high-impact code changes, led development in: Multi-technology Development.</p>
             <div class="skill-tags"><span class="skill-tag">frontend</span> <span class="skill-tag">HTML</span> <span class="skill-tag">Markdown</span></div>
         </div>
         <div class="project-card">
             <div class="project-header">
                 <h3 class="project-title">gitdemo</h3>
-                <span class="project-score">N/A</span>
+                <span class="project-type-badge">Local</span>
             </div>
+            <p class="project-date">📅 Dec 2025 – Dec 2025</p>
             <p class="project-summary">Across this project, the user created README documentation. The documents collectively describe the goals, behaviour, and constraints of the project. Key technical achievements include : contributed 0 commits demonstrating systematic development approach, delivered focused technical contributions across 0 commits.</p>
             
         </div></div>
@@ -154,8 +239,8 @@
       options: { plugins: { legend: { labels: { color: '#94a3b8', font: { size: 11 } } } }, maintainAspectRatio: false }
     });
   }
-  var skillLabels = ["database", "Communication", "Java", "CSS", "Project Planning", "HTML", "C++", "Requirements Analysis", "devops", "frontend"];
-  var skillValues = [1, 3, 1, 2, 2, 2, 1, 3, 2, 4];
+  var skillLabels = ["JSON", "frontend", "Problem Solving", "HTML", "TSX", "Python", "Markdown", "Quality Assurance", "Communication", "Java"];
+  var skillValues = [1, 4, 1, 2, 1, 3, 3, 4, 3, 1];
   if (skillLabels.length) {
     new Chart(document.getElementById('skillsChart'), {
       type: 'bar',
