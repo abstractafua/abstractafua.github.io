@@ -6,87 +6,410 @@
 <title>Afua Frempong | Portfolio</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-         background: #0f172a; color: #e2e8f0; line-height: 1.6; }
-  a { color: #60a5fa; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
-  .hero { text-align: center; padding: 60px 20px 40px; }
-  .hero h1 { font-size: 2.5rem; font-weight: 800; color: #f8fafc; margin-bottom: 8px; }
-  .hero .role { font-size: 1.1rem; color: #94a3b8; margin-bottom: 16px; }
-  .hero .summary { max-width: 640px; margin: 0 auto 20px; color: #cbd5e1; font-size: 0.95rem; }
-  .hero .links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .hero .links a { color: #60a5fa; font-size: 0.9rem; }
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 16px; margin: 40px 0; }
-  .stat { background: #1e293b; border-radius: 10px; padding: 20px; text-align: center;
-           border: 1px solid #334155; }
-  .stat-value { font-size: 2rem; font-weight: 700; color: #818cf8; }
-  .stat-label { font-size: 0.8rem; color: #94a3b8; margin-top: 4px; text-transform: uppercase; }
-  .section { margin: 48px 0; }
-  .section h2 { font-size: 1.4rem; font-weight: 700; color: #f1f5f9; margin-bottom: 24px;
-                border-bottom: 2px solid #334155; padding-bottom: 10px; }
-  .charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-  .chart-card { background: #1e293b; border-radius: 12px; padding: 20px;
-                 border: 1px solid #334155; }
-  .chart-card h3 { font-size: 0.95rem; color: #94a3b8; margin-bottom: 14px; font-weight: 600; }
-  .chart-card canvas { max-height: 220px; }
-  .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-  .project-card { background: #1e293b; border-radius: 12px; padding: 20px;
-                   border: 1px solid #334155; transition: border-color 0.2s; }
-  .project-card:hover { border-color: #6366f1; }
-  .project-header { display: flex; justify-content: space-between; align-items: flex-start;
-                     gap: 10px; margin-bottom: 6px; }
-  .project-title { font-size: 1rem; font-weight: 700; color: #f1f5f9; }
-  .project-type-badge { background: #1e3a5f; color: #7dd3fc; padding: 3px 10px; border-radius: 99px;
-                         font-size: 0.75rem; font-weight: 600; white-space: nowrap; }
-  .project-date { font-size: 0.78rem; color: #64748b; margin-bottom: 8px; }
-  .project-summary { font-size: 0.85rem; color: #94a3b8; margin-bottom: 12px; }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .skill-tag { background: #0f172a; color: #818cf8; border: 1px solid #312e81;
-                padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
-  footer { text-align: center; padding: 40px 20px; color: #475569; font-size: 0.8rem; }
+/* ── Design tokens ─────────────────────────────────────────────────────── */
+:root {
+  --primary-bg: #0f172a;
+  --card: #1e293b;
+  --card-bg: #1e293b;
+  --border: #334155;
+  --border-light: rgba(99,102,241,0.08);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent: #818cf8;
+  --accent-secondary: #6366f1;
+  --accent-glow: rgba(99,102,241,0.35);
+  --shadow: 0 4px 24px rgba(0,0,0,0.35);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --transition: 0.2s ease;
+}
+
+/* ── Reset ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--primary-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Layout ────────────────────────────────────────────────────────────── */
+.main-content {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px 60px;
+}
+
+/* ── Profile hero ──────────────────────────────────────────────────────── */
+.profile-hero {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 32px 0 28px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+.profile-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.profile-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-secondary), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; font-weight: 800; color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.3);
+}
+.profile-info { flex: 1; min-width: 0; }
+.profile-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  margin-bottom: 2px;
+}
+.profile-title {
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.profile-summary {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  max-width: 680px;
+}
+.profile-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.profile-link {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.85rem; color: var(--text-secondary);
+  transition: color var(--transition);
+}
+.profile-link:hover { color: var(--accent); text-decoration: none; }
+.profile-link svg { flex-shrink: 0; opacity: 0.7; }
+
+/* ── Stat bar ──────────────────────────────────────────────────────────── */
+.stat-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: border-color var(--transition), transform var(--transition);
+}
+.stat-card:hover {
+  border-color: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+.stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+/* ── Section titles ────────────────────────────────────────────────────── */
+.portfolio-section { margin-bottom: 40px; }
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: -0.02em;
+}
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin-left: 8px;
+}
+
+/* ── Charts grid ───────────────────────────────────────────────────────── */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.chart-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+.chart-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.chart-container { position: relative; height: 220px; }
+
+/* ── Projects grid ─────────────────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: var(--shadow);
+}
+.project-card:hover {
+  border-color: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.project-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.project-type-badge {
+  background: rgba(99,102,241,0.15);
+  color: var(--accent);
+  border: 1px solid rgba(99,102,241,0.3);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.project-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.project-summary {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.project-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.project-skill-tag {
+  background: var(--border-light);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+/* ── Network graph ─────────────────────────────────────────────────────── */
+.network-graph-container {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.network-canvas-wrap {
+  position: relative;
+  width: 100%;
+  margin-bottom: 0;
+}
+.network-info-panel {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  margin-top: 12px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition: background 0.2s, border-color 0.2s;
+}
+.network-info-name { font-weight: 700; font-size: 13px; color: #f1f5f9; }
+.network-info-commits { font-weight: 600; font-size: 12px; color: #a78bfa; }
+.network-info-projects { display: flex; gap: 6px; flex-wrap: wrap; }
+.network-info-project-tag {
+  font-size: 10px; font-weight: 500;
+  padding: 2px 8px; border-radius: 9999px;
+}
+.network-info-hint { font-size: 13px; color: var(--text-secondary); }
+.network-legend {
+  display: flex;
+  gap: 28px;
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+.network-stat { display: flex; flex-direction: column; gap: 2px; }
+.network-stat-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.network-stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+.portfolio-footer {
+  text-align: center;
+  padding: 32px 20px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .profile-hero { flex-direction: column; text-align: center; padding: 24px 20px; }
+  .profile-links { justify-content: center; }
+  .main-content { padding: 0 16px 40px; }
+  .stat-bar { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
 <body>
-<div class="hero">
-  <h1>Afua Frempong</h1>
-  <div class="role">Solutions Architect</div>
-  <div class="summary">New grad from UBC with experience in Software Development and Solution Architecture</div>
-  <div class="links">
-    <a href="mailto:afuaf2@gmail.com">afuaf2@gmail.com</a>
-    <a href="https://github.com/abstractafua" target="_blank" rel="noopener">GitHub: abstractafua</a>
-  </div>
-</div>
-<div class="container">
-  <div class="stats">
-    <div class="stat"><div class="stat-value">8</div><div class="stat-label">Projects</div></div>
-    <div class="stat"><div class="stat-value">25</div><div class="stat-label">Skills</div></div>
-    <div class="stat"><div class="stat-value">17</div><div class="stat-label">Languages</div></div>
-    <div class="stat"><div class="stat-value">138,551</div><div class="stat-label">Lines of Code</div></div>
-  </div>
-  <div class="section">
-    <h2>📊 Analytics</h2>
-    <div class="charts">
-      <div class="chart-card"><h3>Language Distribution</h3><canvas id="langChart"></canvas></div>
-      <div class="chart-card"><h3>Top Skills</h3><canvas id="skillsChart"></canvas></div>
+<div class="main-content">
+
+  <!-- Profile Hero -->
+  <div class="profile-hero">
+    <div class="profile-avatar">AF</div>
+    <div class="profile-info">
+      <div class="profile-name">Afua Frempong</div>
+      <div class="profile-title">Solutions Architect</div>
+      <div class="profile-summary">New grad from UBC with experience in Software Development and Solution Architecture</div>
+      <div class="profile-links">
+        <a class="profile-link" href="mailto:afuaf2@gmail.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>afuaf2@gmail.com</a>
+        <a class="profile-link" href="https://github.com/abstractafua" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.4820-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.578 9.578 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.8520 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>github.com/abstractafua</a>
+      </div>
     </div>
   </div>
+
+  <!-- Stats -->
+  <div class="stat-bar">
+    <div class="stat-card">
+      <div class="stat-value">8</div>
+      <div class="stat-label">Projects</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">25</div>
+      <div class="stat-label">Skills</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">17</div>
+      <div class="stat-label">Languages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">138,551</div>
+      <div class="stat-label">Lines of Code</div>
+    </div>
+  </div>
+
+  <!-- Analytics -->
+  <div class="portfolio-section">
+    <h2 class="section-title">&#x1F4CA; Analytics</h2>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <div class="chart-card-title">Language Distribution</div>
+        <div class="chart-container"><canvas id="langChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Top Skills</div>
+        <div class="chart-container"><canvas id="skillsChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Project Complexity</div>
+        <div class="chart-container"><canvas id="complexityChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">Monthly Activity</div>
+        <div class="chart-container"><canvas id="activityChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collaboration Network -->
   
-  <div class="section">
-    <h2>🤝 Collaboration Network</h2>
-    <div id="networkCanvasWrap" style="position:relative;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);border:1px solid rgba(99,102,241,0.15);">
-      <div id="networkGraphTarget" style="width:100%;min-height:480px;position:relative;"></div>
+    <div class="portfolio-section network-section">
+      <h2 class="section-title">🤝 Collaboration Network</h2>
+      <div class="network-graph-container" data-graph-theme="dark">
+        <div class="network-canvas-wrap">
+          <div id="networkGraphTarget" style="width:100%;min-height:480px;position:relative;border-radius:12px;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);border:1px solid rgba(99,102,241,0.15);box-shadow:inset 0 1px 30px rgba(0,0,0,0.3);"></div>
+        </div>
+        <div class="network-info-panel" id="networkInfoPanel">
+          <div class="network-info-hint" style="color:#e2e8f0;">👆 Hover for details &middot; Drag to rearrange &middot; Node size = commit count</div>
+        </div>
+        <div class="network-legend">
+          <div class="network-stat"><span class="network-stat-value">5</span><span class="network-stat-label">Contributors</span></div>
+          <div class="network-stat"><span class="network-stat-value" id="nc-connections">4</span><span class="network-stat-label">Connections</span></div>
+          <div class="network-stat"><span class="network-stat-value" id="nc-commits">108</span><span class="network-stat-label" id="nc-commits-label">Total Commits</span></div>
+        </div>
+      </div>
     </div>
-    <div id="networkInfoPanel" style="margin-top:12px;padding:12px 16px;border-radius:10px;border:1px solid #334155;background:#1e293b;min-height:48px;transition:all 0.2s;">
-      <div style="color:#e2e8f0;">👆 Hover for details · Drag to rearrange · Node size = commit count</div>
-    </div>
-    <div style="display:flex;gap:24px;margin-top:12px;padding:12px 16px;border-radius:10px;border:1px solid #334155;background:#1e293b;">
-      <div><span id="nc-contributors" style="font-size:1.4em;font-weight:700;color:#f1f5f9;">5</span><span style="font-size:0.75em;color:#94a3b8;display:block;">Contributors</span></div>
-      <div><span id="nc-connections" style="font-size:1.4em;font-weight:700;color:#f1f5f9;">4</span><span style="font-size:0.75em;color:#94a3b8;display:block;">Connections</span></div>
-      <div><span id="nc-commits" style="font-size:1.4em;font-weight:700;color:#f1f5f9;">108</span><span id="nc-commits-label" style="font-size:0.75em;color:#94a3b8;display:block;">Total Commits</span></div>
-    </div>
-  </div>
 <script>
 (function(){
   var NET={"nodes": [{"id": "Afua Frempong", "name": "Afua Frempong", "commits": 62, "is_primary": true, "projects": ["AID-FINDER", "O-recipes", "capstone-project-team-3"]}, {"id": "dabby04", "name": "dabby04", "commits": 25, "is_primary": false, "projects": ["AID-FINDER"]}, {"id": "PainterW0lf", "name": "PainterW0lf", "commits": 14, "is_primary": false, "projects": ["AID-FINDER"]}, {"id": "Shreya Saxena", "name": "Shreya Saxena", "commits": 4, "is_primary": false, "projects": ["AID-FINDER"]}, {"id": "afuaf@student.ubc.ca", "name": "afuaf@student.ubc.ca", "commits": 3, "is_primary": false, "projects": ["AID-FINDER"]}], "edges": [{"source": "Afua Frempong", "target": "dabby04", "projects": ["AID-FINDER"], "weight": 1, "is_peer": false}, {"source": "Afua Frempong", "target": "PainterW0lf", "projects": ["AID-FINDER"], "weight": 1, "is_peer": false}, {"source": "Afua Frempong", "target": "Shreya Saxena", "projects": ["AID-FINDER"], "weight": 1, "is_peer": false}, {"source": "Afua Frempong", "target": "afuaf@student.ubc.ca", "projects": ["AID-FINDER"], "weight": 1, "is_peer": false}, {"source": "PainterW0lf", "target": "dabby04", "projects": ["AID-FINDER"], "weight": 1, "is_peer": true}, {"source": "Shreya Saxena", "target": "dabby04", "projects": ["AID-FINDER"], "weight": 1, "is_peer": true}, {"source": "afuaf@student.ubc.ca", "target": "dabby04", "projects": ["AID-FINDER"], "weight": 1, "is_peer": true}, {"source": "PainterW0lf", "target": "Shreya Saxena", "projects": ["AID-FINDER"], "weight": 1, "is_peer": true}, {"source": "PainterW0lf", "target": "afuaf@student.ubc.ca", "projects": ["AID-FINDER"], "weight": 1, "is_peer": true}, {"source": "Shreya Saxena", "target": "afuaf@student.ubc.ca", "projects": ["AID-FINDER"], "weight": 1, "is_peer": true}]};
@@ -111,7 +434,7 @@
   var bBase='height:30px;padding:0 10px;border:none;font-size:12px;font-weight:500;cursor:pointer;color:rgba(226,232,240,0.6);background:transparent;transition:background 0.2s,color 0.2s;';
   var mR=document.createElement('div');mR.style.cssText=rStyle;toolbar.appendChild(mR);
   var sBtn=document.createElement('button');sBtn.textContent='⭐ Star';sBtn.style.cssText=bBase+'border-right:1px solid rgba(99,102,241,0.25);';mR.appendChild(sBtn);
-  var nBtn=document.createElement('button');nBtn.textContent='🕸️ Network';nBtn.style.cssText=bBase;mR.appendChild(nBtn);
+  var nBtn=document.createElement('button');nBtn.textContent='🕸 Network';nBtn.style.cssText=bBase;mR.appendChild(nBtn);
   function updR(){
     sBtn.style.background=mode==='star'?'rgba(99,102,241,0.35)':'transparent';sBtn.style.color=mode==='star'?'#fff':'rgba(226,232,240,0.6)';
     nBtn.style.background=mode==='full'?'rgba(99,102,241,0.35)':'transparent';nBtn.style.color=mode==='full'?'#fff':'rgba(226,232,240,0.6)';
@@ -231,14 +554,14 @@
     if(n){
       infoPanel.style.borderColor='rgba(99,102,241,0.35)';infoPanel.style.background='#0f172a';
       var cl=mode==='full'?n.projects.length+' project'+(n.projects.length!==1?'s':''):n.commits.toLocaleString()+' commits';
-      var h='<div style="font-weight:700;font-size:1em;color:#f1f5f9;">'+n.name+'</div>';
-      h+='<div style="color:#a78bfa;font-size:0.85em;margin:2px 0 6px;">'+cl+'</div><div style="display:flex;flex-wrap:wrap;gap:4px;">';
-      n.projects.forEach(function(p){h+='<span style="font-size:0.75em;padding:2px 8px;border-radius:12px;background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.2);color:#38bdf8;">'+p+'</span>';});
+      var h='<div class="network-info-name" style="color:#f1f5f9;">'+n.name+'</div>';
+      h+='<div class="network-info-commits" style="color:#a78bfa;">'+cl+'</div><div class="network-info-projects">';
+      n.projects.forEach(function(p){h+='<span class="network-info-project-tag" style="color:#38bdf8;background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.2);">'+p+'</span>';});
       h+='</div>';infoPanel.innerHTML=h;
     }else{
       infoPanel.style.borderColor='#334155';infoPanel.style.background='#1e293b';
       var hint='Hover for details · Drag to rearrange · '+(mode==='full'?'Node size = project breadth':'Node size = commit count');
-      infoPanel.innerHTML='<div style="color:#e2e8f0;">👆 '+hint+'</div>';
+      infoPanel.innerHTML='<div class="network-info-hint" style="color:#e2e8f0;">👆 '+hint+'</div>';
     }
   }
   sBtn.addEventListener('click',function(){mode='star';updR();updLegend();updInfo(hovered);});
@@ -263,106 +586,193 @@
   });
 })();
 </script>
-  <div class="section">
-    <h2>🚀 Projects</h2>
-    <div class="projects">
+
+  <!-- Projects -->
+  <div class="portfolio-section projects-section">
+    <h2 class="section-title">&#x1F680; Projects</h2>
+    <div class="projects-grid">
         <div class="project-card">
-            <div class="project-header">
-                <h3 class="project-title">capstone_team-3_dec_2026</h3>
-                <span class="project-type-badge">Local</span>
-            </div>
-            <p class="project-date">📅 Dec 2025 – Dec 2025</p>
-            <p class="project-summary">Across this project, the user created installation and setup guides and general technical documentation. The documentation is primarily in the Software Engineering domain, aligning with their Technology background. It describes the system architecture and key design decisions. It captures core functional and non-functional requirements for the platform. It outlines parsing, analysis, and NLP-driven capabilities for working with non-code artifacts. It also discusses risks, testing, and reliability or performance considerations. Key technical achievements include : a comprehensive 135201-line codebase across 483 files using Text, INI, JSON, Docker, Bash, Markdown, YAML, JavaScript, Python, built solutions using Express.js framework, software design patterns: Observer Pattern, Strategy Pattern, Repository Pattern, modern development practices: MVC Architecture, Microservices Architecture, RESTful API Architecture, Event-Driven Architecture, Layered Architecture, Web API Development, maintained excellent code quality with high maintainability score and well-structured functions.</p>
-            <div class="skill-tags"><span class="skill-tag">Collaboration</span> <span class="skill-tag">Communication</span> <span class="skill-tag">Quality Assurance</span> <span class="skill-tag">Requirements Analysis</span> <span class="skill-tag">devops</span> <span class="skill-tag">backend</span> <span class="skill-tag">frontend</span> <span class="skill-tag">database</span></div>
+          <div class="project-card-header">
+            <h3 class="project-title">capstone_team-3_dec_2026</h3>
+            <span class="project-type-badge">Local</span>
+          </div>
+          <div class="project-date">📅 Dec 2025 – Dec 2025</div>
+          <p class="project-summary">Across this project, the user created installation and setup guides and general technical documentation. The documentation is primarily in the Software Engineering domain, aligning with their Technology background. It describes the system architecture and key design decisions. It captures core functional and non-functional requirements for the platform. It outlines parsing, analysis, and NLP-driven capabilities for working with non-code artifacts. It also discusses risks, testing, and reliability or performance considerations. Key technical achievements include : a comprehensive 135201-line codebase across 483 files using Text, INI, JSON, Docker, Bash, Markdown, YAML, JavaScript, Python, built solutions using Express.js framework, software design patterns: Observer Pattern, Strategy Pattern, Repository Pattern, modern development practices: MVC Architecture, Microservices Architecture, RESTful API Architecture, Event-Driven Architecture, Layered Architecture, Web API Development, maintained excellent code quality with high maintainability score and well-structured functions.</p>
+          <div class="project-skills"><span class="project-skill-tag">Collaboration</span><span class="project-skill-tag">Communication</span><span class="project-skill-tag">Quality Assurance</span><span class="project-skill-tag">Requirements Analysis</span><span class="project-skill-tag">devops</span><span class="project-skill-tag">backend</span><span class="project-skill-tag">frontend</span><span class="project-skill-tag">database</span></div>
         </div>
         <div class="project-card">
-            <div class="project-header">
-                <h3 class="project-title">capstone-project-team-3</h3>
-                <span class="project-type-badge">GitHub</span>
-            </div>
-            <p class="project-date">📅 Nov 2025 – Nov 2025</p>
-            <p class="project-summary">Across this project, the user created installation and setup guides and README documentation. The documentation is primarily in the Software Engineering domain, aligning with their Technology background. It describes the system architecture and key design decisions. It captures core functional and non-functional requirements for the platform. It outlines parsing, analysis, and NLP-driven capabilities for working with non-code artifacts. It also discusses risks, testing, and reliability or performance considerations. Key technical achievements include : incremental development methodology with 52 targeted commits over 42 days of consistent code evolution, full-stack solution using Python/Markdown with 52 source files and comprehensive project structure, demonstrated consistent development rhythm and sustainable coding practices, focused development approach with targeted, high-impact code changes, led development in: Python Development.</p>
-            <div class="skill-tags"><span class="skill-tag">Collaboration</span> <span class="skill-tag">Communication</span> <span class="skill-tag">Quality Assurance</span> <span class="skill-tag">Requirements Analysis</span> <span class="skill-tag">devops</span> <span class="skill-tag">backend</span> <span class="skill-tag">Python</span> <span class="skill-tag">Markdown</span></div>
+          <div class="project-card-header">
+            <h3 class="project-title">capstone-project-team-3</h3>
+            <span class="project-type-badge">GitHub</span>
+          </div>
+          <div class="project-date">📅 Nov 2025 – Nov 2025</div>
+          <p class="project-summary">Across this project, the user created installation and setup guides and README documentation. The documentation is primarily in the Software Engineering domain, aligning with their Technology background. It describes the system architecture and key design decisions. It captures core functional and non-functional requirements for the platform. It outlines parsing, analysis, and NLP-driven capabilities for working with non-code artifacts. It also discusses risks, testing, and reliability or performance considerations. Key technical achievements include : incremental development methodology with 52 targeted commits over 42 days of consistent code evolution, full-stack solution using Python/Markdown with 52 source files and comprehensive project structure, demonstrated consistent development rhythm and sustainable coding practices, focused development approach with targeted, high-impact code changes, led development in: Python Development.</p>
+          <div class="project-skills"><span class="project-skill-tag">Collaboration</span><span class="project-skill-tag">Communication</span><span class="project-skill-tag">Quality Assurance</span><span class="project-skill-tag">Requirements Analysis</span><span class="project-skill-tag">devops</span><span class="project-skill-tag">backend</span><span class="project-skill-tag">Python</span><span class="project-skill-tag">Markdown</span></div>
         </div>
         <div class="project-card">
-            <div class="project-header">
-                <h3 class="project-title">non_code_projects</h3>
-                <span class="project-type-badge">Local</span>
-            </div>
-            <p class="project-date">📅 Oct 2025 – Nov 2025</p>
-            <p class="project-summary">Across this project, the user created tutorial or how-to documentation and installation and setup guides. The documentation is primarily in the AI / Machine Learning domain. It outlines parsing, analysis, and NLP-driven capabilities for working with non-code artifacts.</p>
-            <div class="skill-tags"><span class="skill-tag">Project Planning</span> <span class="skill-tag">Quality Assurance</span></div>
+          <div class="project-card-header">
+            <h3 class="project-title">non_code_projects</h3>
+            <span class="project-type-badge">Local</span>
+          </div>
+          <div class="project-date">📅 Oct 2025 – Nov 2025</div>
+          <p class="project-summary">Across this project, the user created tutorial or how-to documentation and installation and setup guides. The documentation is primarily in the AI / Machine Learning domain. It outlines parsing, analysis, and NLP-driven capabilities for working with non-code artifacts.</p>
+          <div class="project-skills"><span class="project-skill-tag">Project Planning</span><span class="project-skill-tag">Quality Assurance</span></div>
         </div>
         <div class="project-card">
-            <div class="project-header">
-                <h3 class="project-title">code_projects</h3>
-                <span class="project-type-badge">Local</span>
-            </div>
-            <p class="project-date">📅 Oct 2025 – Nov 2025</p>
-            <p class="project-summary"> Key technical achievements include : a comprehensive 272-line codebase across 6 files using TypeScript, C++, C#, CSS, Vue, Java, built solutions using Angular framework, modern development practices: Angular Hooks/Lifecycle (1 types), Angular State Management, Component Props/Data Flow (1 components), maintained excellent code quality with high maintainability score and well-structured functions, followed best practices with low-complexity, maintainable code structure.</p>
-            <div class="skill-tags"><span class="skill-tag">backend</span> <span class="skill-tag">frontend</span> <span class="skill-tag">TypeScript</span> <span class="skill-tag">C++</span> <span class="skill-tag">C#</span> <span class="skill-tag">CSS</span> <span class="skill-tag">Vue</span> <span class="skill-tag">Java</span></div>
+          <div class="project-card-header">
+            <h3 class="project-title">code_projects</h3>
+            <span class="project-type-badge">Local</span>
+          </div>
+          <div class="project-date">📅 Oct 2025 – Nov 2025</div>
+          <p class="project-summary"> Key technical achievements include : a comprehensive 272-line codebase across 6 files using TypeScript, C++, C#, CSS, Vue, Java, built solutions using Angular framework, modern development practices: Angular Hooks/Lifecycle (1 types), Angular State Management, Component Props/Data Flow (1 components), maintained excellent code quality with high maintainability score and well-structured functions, followed best practices with low-complexity, maintainable code structure.</p>
+          <div class="project-skills"><span class="project-skill-tag">backend</span><span class="project-skill-tag">frontend</span><span class="project-skill-tag">TypeScript</span><span class="project-skill-tag">C++</span><span class="project-skill-tag">C#</span><span class="project-skill-tag">CSS</span><span class="project-skill-tag">Vue</span><span class="project-skill-tag">Java</span></div>
         </div>
         <div class="project-card">
-            <div class="project-header">
-                <h3 class="project-title">html_scraper</h3>
-                <span class="project-type-badge">Local</span>
-            </div>
-            <p class="project-date">📅 Jan 1980 – Dec 2024</p>
-            <p class="project-summary"> Key technical achievements include : a comprehensive 513-line codebase across 7 files using JSON, HTML, JavaScript, CSS, Python, maintained excellent code quality with high maintainability score and well-structured functions, followed best practices with low-complexity, maintainable code structure, architected modular solution with 3 functions and 17 classes, maintained low complexity across all classes.</p>
-            <div class="skill-tags"><span class="skill-tag">backend</span> <span class="skill-tag">database</span> <span class="skill-tag">frontend</span> <span class="skill-tag">JSON</span> <span class="skill-tag">HTML</span> <span class="skill-tag">JavaScript</span> <span class="skill-tag">CSS</span> <span class="skill-tag">Python</span></div>
+          <div class="project-card-header">
+            <h3 class="project-title">html_scraper</h3>
+            <span class="project-type-badge">Local</span>
+          </div>
+          <div class="project-date">📅 Jan 1980 – Dec 2024</div>
+          <p class="project-summary"> Key technical achievements include : a comprehensive 513-line codebase across 7 files using JSON, HTML, JavaScript, CSS, Python, maintained excellent code quality with high maintainability score and well-structured functions, followed best practices with low-complexity, maintainable code structure, architected modular solution with 3 functions and 17 classes, maintained low complexity across all classes.</p>
+          <div class="project-skills"><span class="project-skill-tag">backend</span><span class="project-skill-tag">database</span><span class="project-skill-tag">frontend</span><span class="project-skill-tag">JSON</span><span class="project-skill-tag">HTML</span><span class="project-skill-tag">JavaScript</span><span class="project-skill-tag">CSS</span><span class="project-skill-tag">Python</span></div>
         </div>
         <div class="project-card">
-            <div class="project-header">
-                <h3 class="project-title">AID-FINDER</h3>
-                <span class="project-type-badge">GitHub</span>
-            </div>
-            <p class="project-date">📅 Mar 2026 – Mar 2026</p>
-            <p class="project-summary">Across this project, the user created README documentation. The documentation is primarily in the AI / Machine Learning domain. Key technical achievements include : incremental development methodology with 2 targeted commits over 1 days of consistent code evolution, full-stack solution using XML/Java with 7 source files and comprehensive project structure, demonstrated consistent development rhythm and sustainable coding practices, executed comprehensive development across multiple project components and modules, led development in: Java Development.</p>
-            <div class="skill-tags"><span class="skill-tag">backend</span> <span class="skill-tag">XML</span> <span class="skill-tag">Java</span></div>
+          <div class="project-card-header">
+            <h3 class="project-title">AID-FINDER</h3>
+            <span class="project-type-badge">GitHub</span>
+          </div>
+          <div class="project-date">📅 Mar 2026 – Mar 2026</div>
+          <p class="project-summary">Across this project, the user created README documentation. The documentation is primarily in the AI / Machine Learning domain. Key technical achievements include : incremental development methodology with 2 targeted commits over 1 days of consistent code evolution, full-stack solution using XML/Java with 7 source files and comprehensive project structure, demonstrated consistent development rhythm and sustainable coding practices, executed comprehensive development across multiple project components and modules, led development in: Java Development.</p>
+          <div class="project-skills"><span class="project-skill-tag">backend</span><span class="project-skill-tag">XML</span><span class="project-skill-tag">Java</span></div>
         </div>
         <div class="project-card">
-            <div class="project-header">
-                <h3 class="project-title">O-recipes</h3>
-                <span class="project-type-badge">GitHub</span>
-            </div>
-            <p class="project-date">📅 May 2023 – Oct 2025</p>
-            <p class="project-summary">Across this project, the user created README documentation. The documents collectively describe the goals, behaviour, and constraints of the project. Key technical achievements include : incremental development methodology with 7 targeted commits over 1 days of consistent code evolution, HTML/Markdown solution with focused development approach, maintained high development velocity with consistent daily contributions, focused development approach with targeted, high-impact code changes, led development in: Multi-technology Development.</p>
-            <div class="skill-tags"><span class="skill-tag">frontend</span> <span class="skill-tag">HTML</span> <span class="skill-tag">Markdown</span></div>
+          <div class="project-card-header">
+            <h3 class="project-title">O-recipes</h3>
+            <span class="project-type-badge">GitHub</span>
+          </div>
+          <div class="project-date">📅 May 2023 – Oct 2025</div>
+          <p class="project-summary">Across this project, the user created README documentation. The documents collectively describe the goals, behaviour, and constraints of the project. Key technical achievements include : incremental development methodology with 7 targeted commits over 1 days of consistent code evolution, HTML/Markdown solution with focused development approach, maintained high development velocity with consistent daily contributions, focused development approach with targeted, high-impact code changes, led development in: Multi-technology Development.</p>
+          <div class="project-skills"><span class="project-skill-tag">frontend</span><span class="project-skill-tag">HTML</span><span class="project-skill-tag">Markdown</span></div>
         </div>
         <div class="project-card">
-            <div class="project-header">
-                <h3 class="project-title">gitdemo</h3>
-                <span class="project-type-badge">Local</span>
-            </div>
-            <p class="project-date">📅 Dec 2025 – Dec 2025</p>
-            <p class="project-summary">Across this project, the user created README documentation. The documents collectively describe the goals, behaviour, and constraints of the project. Key technical achievements include : contributed 0 commits demonstrating systematic development approach, delivered focused technical contributions across 0 commits.</p>
-            
+          <div class="project-card-header">
+            <h3 class="project-title">gitdemo</h3>
+            <span class="project-type-badge">Local</span>
+          </div>
+          <div class="project-date">📅 Dec 2025 – Dec 2025</div>
+          <p class="project-summary">Across this project, the user created README documentation. The documents collectively describe the goals, behaviour, and constraints of the project. Key technical achievements include : contributed 0 commits demonstrating systematic development approach, delivered focused technical contributions across 0 commits.</p>
+          
         </div></div>
   </div>
+
 </div>
-<footer>Generated by Portfolio Builder · 8 projects</footer>
+<footer class="portfolio-footer">
+  Generated by Portfolio Builder &middot; 8 projects
+</footer>
 <script>
 (function() {
-  var COLORS = ['#818cf8','#34d399','#f472b6','#fb923c','#a78bfa','#38bdf8','#facc15','#4ade80','#e879f9','#f87171'];
+  var COLORS = ['#818cf8','#34d399','#f472b6','#fb923c','#a78bfa','#38bdf8','#facc15','#4ade80','#e879f9','#f87171',
+                '#60a5fa','#2dd4bf','#c084fc','#fbbf24','#86efac','#f9a8d4'];
+
+  function darkTicks() {
+    return { color: '#94a3b8', font: { size: 11 } };
+  }
+  function darkGrid() {
+    return { color: 'rgba(51,65,85,0.6)' };
+  }
+
+  // Language pie
   var langLabels = ["JSON", "HTML", "JavaScript", "CSS", "Python", "Markdown", "TypeScript", "C++", "C#", "Vue", "Java", "Text", "INI", "Docker", "Bash", "YAML", "XML"];
   var langValues = [2, 2, 2, 2, 3, 3, 1, 1, 1, 1, 2, 1, 1, 2, 1, 2, 1];
   if (langLabels.length) {
     new Chart(document.getElementById('langChart'), {
-      type: 'pie',
-      data: { labels: langLabels, datasets: [{ data: langValues, backgroundColor: COLORS, borderColor: '#0f172a', borderWidth: 2 }] },
-      options: { plugins: { legend: { labels: { color: '#94a3b8', font: { size: 11 } } } }, maintainAspectRatio: false }
+      type: 'doughnut',
+      data: {
+        labels: langLabels,
+        datasets: [{ data: langValues, backgroundColor: COLORS, borderColor: '#0f172a', borderWidth: 2, hoverOffset: 6 }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 11 }, padding: 12, usePointStyle: true } }
+        }
+      }
     });
   }
-  var skillLabels = ["C#", "Vue", "JSON", "frontend", "JavaScript", "database", "Java", "Project Planning", "C++", "Markdown"];
-  var skillValues = [1, 1, 2, 4, 1, 2, 2, 1, 1, 2];
+
+  // Skills horizontal bar
+  var skillLabels = ["Vue", "C#", "TypeScript", "Requirements Analysis", "Quality Assurance", "Python", "JavaScript", "YAML", "Markdown", "C++"];
+  var skillValues = [1, 1, 1, 2, 3, 3, 1, 1, 2, 1];
   if (skillLabels.length) {
     new Chart(document.getElementById('skillsChart'), {
       type: 'bar',
-      data: { labels: skillLabels, datasets: [{ data: skillValues, backgroundColor: '#818cf8', borderRadius: 4 }] },
-      options: { indexAxis: 'y', plugins: { legend: { display: false } },
-                  scales: { x: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } },
-                             y: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } } },
-                  maintainAspectRatio: false }
+      data: {
+        labels: skillLabels,
+        datasets: [{ data: skillValues, backgroundColor: '#6366f1', borderRadius: 4, borderSkipped: false }]
+      },
+      options: {
+        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: darkTicks(), grid: darkGrid(), beginAtZero: true },
+          y: { ticks: darkTicks(), grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  // Complexity bar
+  var complexityLabels = ["Small (<1 k)", "Medium (1\u20133 k)", "Large (>3 k)"];
+  var complexityValues = [6, 1, 1];
+  if (complexityValues.some(function(v){ return v > 0; })) {
+    new Chart(document.getElementById('complexityChart'), {
+      type: 'bar',
+      data: {
+        labels: complexityLabels,
+        datasets: [{ data: complexityValues, backgroundColor: ['#818cf8','#34d399','#f472b6'], borderRadius: 6, borderSkipped: false }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: darkTicks(), grid: { display: false } },
+          y: { ticks: darkTicks(), grid: darkGrid(), beginAtZero: true }
+        }
+      }
+    });
+  }
+
+  // Monthly activity line
+  var monthlyLabels = ["1980-01", "2023-05", "2024-12", "2025-10", "2025-11", "2025-12", "2026-03"];
+  var monthlyValues = [1, 1, 0.5, 2.5, 2.5, 2.5, 1.5];
+  if (monthlyLabels.length) {
+    new Chart(document.getElementById('activityChart'), {
+      type: 'line',
+      data: {
+        labels: monthlyLabels,
+        datasets: [{
+          label: 'Activity',
+          data: monthlyValues,
+          borderColor: '#818cf8',
+          backgroundColor: 'rgba(99,102,241,0.12)',
+          fill: true,
+          tension: 0.4,
+          borderWidth: 2.5,
+          pointBackgroundColor: '#818cf8',
+          pointBorderColor: '#0f172a',
+          pointBorderWidth: 2,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: darkTicks(), grid: darkGrid() },
+          y: { ticks: darkTicks(), grid: darkGrid(), beginAtZero: true }
+        }
+      }
     });
   }
 })();
