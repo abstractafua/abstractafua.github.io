@@ -1,0 +1,59 @@
+Afua Frempong | afuaf2@gmail.com | github.com/abstractafua
+
+February 25, 2026
+
+Hiring Manager
+Department of Cyber Security & Digital Solutions
+Government of Nova Scotia
+
+Dear Hiring Manager,
+
+The Computer Services Officer (CSO 1-2) Future Opportunities Stream at the Department of 
+Cyber Security & Digital Solutions is a compelling fit for both my technical background and 
+my genuine interest in building digital services that work for real people. As a Computer 
+Science student at the University of British Columbia graduating in Spring 2026, with 
+professional experience across the public and private sector, I am eager to contribute to 
+CSDS's mission of delivering accessible, reliable, and secure digital solutions to Nova Scotians.
+
+My co-op with the Government of Canada (Innovation, Science and Economic Development Canada) 
+gave me direct experience operating within a large public sector technology environment — one 
+that demanded professionalism, confidentiality, and a clear understanding of how technology 
+decisions affect the people they serve. I worked with internal datasets, supported 
+policy-adjacent research, and collaborated across teams to deliver accurate, timely outputs 
+in a structured government setting. This experience gave me a grounded understanding of the 
+standards and accountability that public sector digital work requires, and I am confident it 
+translates directly to the CSDS environment.
+
+At Symend, a private sector fintech organization, I deepened my hands-on technical skills —
+building and maintaining data pipelines, developing dashboards in Power BI and Tableau, 
+writing SQL queries against production databases, and working within agile delivery teams 
+using JIRA and Confluence. I also bring strong proficiency in Microsoft 365 and the Power 
+Platform, Python, JavaScript, React, Node.js, and database management systems — spanning 
+several of the role areas listed in this stream, including Digital Collaboration, Database 
+Infrastructure, Application Support, and Application Development.
+
+My project work reflects the same values CSDS describes — building things that are 
+user-centred, reliable, and impactful. Aid-Finder, an Android application I developed, 
+connects people experiencing homelessness to nearby public services — a project that pushed 
+me to think carefully about accessibility and real-world utility from the very first design 
+decision. Learning Layers, a full-stack tutoring platform, and my IoT Smart Sprinkler 
+capstone further demonstrate my ability to take a problem from requirements through to a 
+working, tested solution.
+
+What draws me specifically to CSDS is the scope of impact. The opportunity to modernize 
+systems across healthcare, public safety, and education, services that Nova Scotians 
+depend on, is exactly the kind of work that makes technical effort feel meaningful. I 
+bring curiosity, a collaborative mindset, and the technical range to contribute across 
+multiple stream areas, and I am fully open to relocation for permanent, term, or casual opportunities 
+as they arise.
+
+Thank you for considering a single-intake approach that makes it easier for candidates 
+to connect with the right opportunity. I look forward to completing any follow-up 
+questionnaires and to the possibility of contributing to CSDS's important work.
+
+Sincerely,
+Afua Frempong
+
+afuaf2@gmail.com
+linkedin.com/in/afua-frempong-798218258
+https://abstractafua.github.io/
