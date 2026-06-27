@@ -30,8 +30,7 @@ function About() {
 
           React.createElement('p', { className: 'reveal reveal-delay-1' },
             'Hi I\'m ', React.createElement('span', null, 'Afua'),
-            ' — a Computer Science student at the ', React.createElement('span', null, 'University of British Columbia'),
-            ' graduating in Spring of 2026. I\'m passionate about using technology to solve real problems.'
+            'I\'m passionate about using technology to solve real problems.'
           ),
 
           React.createElement('p', { className: 'reveal reveal-delay-2' },
